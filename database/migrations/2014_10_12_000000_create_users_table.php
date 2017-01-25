@@ -18,6 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('api_token', 60)->nullable();
+            $table->integer('subscription_id')
+                ->unsigned()
+                ->default(1);
+            $table->foreign('subscription_id')
+                ->references('id')
+                ->on('subscriptions');
             $table->rememberToken();
             $table->timestamps();
         });

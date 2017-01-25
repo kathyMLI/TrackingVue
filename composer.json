@@ -6,8 +6,10 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "isaiascardenas/correoschile": "^0.0.1",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "spatie/laravel-permission": "^1.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
