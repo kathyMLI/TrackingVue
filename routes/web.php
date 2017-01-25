@@ -12,14 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-// Auth::routes();
+Route::get('/app', function () {
+    return view('public');
+});
+Route::get('/admin', function () {
+    return view('admin');
+});
 
-// Route::get('/home', 'HomeController@index');
-
-
-Route::get('/home', 'HomeController@index');
-
+Route::post('register', 'Auth\RegisterController@register');
 Route::post('login', 'Auth\LoginController@login');

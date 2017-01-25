@@ -2,17 +2,21 @@
 
 use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['auth:api', 'admin'], 'namespace' => 'Api'], function () {
+    Route::resources(['users' => 'UsersController']);
+    Route::resources(['roles' => 'RolesController']);
+    Route::get('trackings', 'TrackingsController@index');
+    Route::get('permissions', 'PermissionsController@index');
+});
+Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
+    Route::resources(['users.trackings' => 'TrackingsController']);
+    Route::get('/trackings/{tracking}', 'TrackingsController@show');
+    Route::get('/me', function (Request $request) {
+        return $request->user()->load('notifications', 'trackings');
+    });
+
+    Route::post('/markNotificationsAsRead', function (Request $request) {
+        $request->user()->unreadNotifications()->update(['read_at' => \Carbon\Carbon::now()]);
+    });
 });

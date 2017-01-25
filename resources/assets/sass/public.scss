@@ -1,0 +1,24 @@
+
+// Fonts
+//@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+//SweetAlert2
+@import "node_modules/sweetalert2/src/sweetalert2";
+
+//Element
+@import "node_modules/element-ui/lib/theme-default/index";
+
+//Bulma
+@import "node_modules/bulma/bulma";
+
+//Font Awesome
+@import "node_modules/font-awesome/scss/font-awesome";
+
+.user-img {
+    width: 49.8px;
+    height: 49.8px;
+    border-radius: 100px;
+}

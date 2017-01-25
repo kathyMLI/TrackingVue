@@ -21,6 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'api_token',
+        'rut'
     ];
 
     /**
@@ -62,7 +63,7 @@ class User extends Authenticatable
             ->withPivot('description');
     }
 
-    public function subscriptions()
+    public function subscription()
     {
         return $this->belongsTo(Subscription::class);
     }
