@@ -15,6 +15,11 @@ const routes = [
         component: require('./components/auth/Login.vue')
     },
     {
+        path: '/register',
+        name: 'register',
+        component: require('./components/auth/Register.vue')
+    },
+    {
         path: '/',
         component: require('./components/layout/Layout.vue'),
         beforeEnter: authentication,
