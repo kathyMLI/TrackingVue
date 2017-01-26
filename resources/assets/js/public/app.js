@@ -6,8 +6,10 @@ import router from './routes'
 import VueRouter from 'vue-router'
 import Multiselect from 'vue-multiselect'
 import VueProgressBar from 'vue-progressbar'
+import VueRut from 'vue-rut'
 
 Vue.use(VueRouter);
+Vue.use(VueRut);
 Vue.use(VueProgressBar, {
 	color: '#03A9F4',
 	thickness: '3px',

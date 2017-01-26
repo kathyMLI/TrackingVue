@@ -28,20 +28,10 @@
                 resources.createResource(this.resource, user)
                     .then((data) => {
                         router.push({ name: 'users'});
-                        this.$message({
-                            showClose: true,
-                            message: 'Usuario creado con exito',
-                            type: 'success'
-                        });
                     })
                     .catch((data) => {
                         Event.fire('errorForm', data.response.data);
                         Event.fire('rolesForm', this.roles);
-                        this.$message({
-                            showClose: true,
-                            message: 'Oops, error al crear usuario',
-                            type: 'error'
-                        });
                     });
             }
         }

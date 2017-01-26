@@ -41,20 +41,10 @@
                     .then((data) => {
                         console.log('Rol Actualizado', data.data);
                         router.push({ name: 'roles'});
-                        this.$message({
-                            showClose: true,
-                            message: 'Rol actualizado con exito',
-                            type: 'success'
-                        });
                     })
                     .catch((data) => {
                         Event.fire('errorForm', data.response.data);
                         Event.fire('permissionsForm', this.permissions);
-                        this.$message({
-                            showClose: true,
-                            message: 'Oops, error al editar rol',
-                            type: 'error'
-                        });
                     });
             }
         }

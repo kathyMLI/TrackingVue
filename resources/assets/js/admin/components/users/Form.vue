@@ -22,6 +22,13 @@
                                 {{ error.email[0] }}
                             </span>
                         </p>
+                        <label class="label">Rut</label>
+                        <p class="control">
+                            <input type="text" id="rut" v-rut v-model="data.rut" class="input" v-bind:class="{ 'is-danger': hasErrors('rut')}">
+                            <span v-if="hasErrors('rut')" class="help is-danger">
+                                {{ error.rut[0] }}
+                            </span>
+                        </p>
                         <label class="label">Password</label>
                         <p class="control">
                             <input type="password" id="password" v-model="data.password" class="input" v-bind:class="{ 'is-danger': hasErrors('password')}">
@@ -69,6 +76,10 @@
                 type: String,
                 required: false
             },
+            defaultRut: {
+                type: String,
+                required: false
+            },
             defaultRoles: {
                 type: Array,
                 required: false
@@ -79,6 +90,7 @@
                 data: {
                     name: '',
                     email: '',
+                    rut:'',
                     password: '',
                     password_confirmation: '',
                     roles: ''
@@ -93,6 +105,9 @@
             }
             if (this.defaultEmail != null) {
                 this.data.email = this.defaultEmail
+            }
+            if (this.defaultRut != null) {
+                this.data.rut = this.defaultRut
             }
             if (this.defaultRoles != null) {
                 this.data.roles = this.defaultRoles

@@ -13,6 +13,7 @@
                 data: {
                     name: '',
                     email: '',
+                    rut: '',
                     password: '',
                     password_confirmation: '',
                     roles: []
@@ -27,6 +28,7 @@
                 .then((data) => {
                     this.data.name = data.data.name;
                     this.data.email = data.data.email;
+                    this.data.rut = data.data.rut;
                     this.data.roles = data.data.roles;
                     this.$Progress.finish();
                     Event.fire('dataUser', this.data);
@@ -42,20 +44,10 @@
                 resources.updateResource(this.resource, router.currentRoute.params.id, user)
                     .then((data) => {
                         router.push({ name: 'users'});
-                        this.$message({
-                            showClose: true,
-                            message: 'Usuario actualizado con exito',
-                            type: 'success'
-                        });
                     })
                     .catch((data) => {
                         Event.fire('errorForm', data.response.data);
                         Event.fire('rolesForm', this.roles);
-                        this.$message({
-                            showClose: true,
-                            message: 'Oops, error al editar usuario',
-                            type: 'error'
-                        });
                     });
             }
         }

@@ -21,6 +21,7 @@
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Email</th>
+                                        <th>Rut</th>
                                         <th>Roles</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -29,12 +30,14 @@
                                     <tr>
                                         <td><p class="control"><input v-model="search.name" v-on:blur="filter" type="text" class="input" placeholder="nombre"></p></td>
                                         <td><p class="control"><input v-model="search.email" v-on:blur="filter" type="text" class="input" placeholder="email"></p></td>
+                                        <td><p class="control"><input v-model="search.rut" v-on:blur="filter" type="text" class="input" placeholder="rut"></p></td>
                                         <td><p class="control"><input v-model="search.roles" v-on:blur="filter" type="text" class="input" placeholder="rol"></p></td>
                                         <td></td>
                                     </tr>
                                     <tr v-for="(user, index) in data.data">
                                         <td>{{ user.name }}</td>
                                         <td>{{ user.email }}</td>
+                                        <td>{{ user.rut | rut }}</td>
                                         <td>
                                             <span v-for="role in user.roles">
                                                 <span class="tag is-primary">{{ role.label }}</span>
@@ -75,6 +78,7 @@
                 search: {
                     name: '',
                     email: '',
+                    rut: '',
                     roles: '',
                     page: ''
                 },
@@ -87,6 +91,7 @@
                     page: this.search.page,
                     name: this.search.name,
                     email: this.search.email,
+                    rut: this.search.rut,
                     roles: this.search.roles
                 }});
                 resources.filterResources(this.resource, router.currentRoute.query)

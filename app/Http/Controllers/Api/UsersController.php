@@ -30,6 +30,7 @@ class UsersController extends ApiController
         $this->validate($request, [
             'name'     => 'required|max:255',
             'email'    => 'required|email|max:255|unique:users',
+            'rut'    => 'required|max:15|unique:users',
             'password' => 'required|confirmed|min:6',
             'roles'    => 'present|array',
             'roles.*'  => 'exists:roles,name'
@@ -47,6 +48,7 @@ class UsersController extends ApiController
         $this->validate($request, [
             'name'     => 'sometimes|required|max:255',
             'email'    => 'sometimes|required|email|max:255|unique:users,email,' . $user->id,
+            'rut'    => 'sometimes|required|max:15|unique:users,rut,' . $user->id,
             'password' => 'sometimes|required|confirmed|min:6',
             'roles.*'  => 'exists:roles,name'
         ]);
