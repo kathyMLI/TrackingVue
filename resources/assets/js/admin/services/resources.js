@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export default {
     buildQueryParams(params) {
         var page = params.page || 1;
