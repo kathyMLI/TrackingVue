@@ -55,6 +55,7 @@
             resources.me()
                 .then(({data}) => {
                     this.me = data;
+                    Event.fire('me', this.me);
                 });
         },
         computed: {
@@ -75,6 +76,7 @@
                 resources.me()
                     .then(({data}) => {
                         this.me = data;
+                        Event.fire('me', this.me);
                     });
             }
         }

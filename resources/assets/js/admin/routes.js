@@ -1,20 +1,5 @@
 import VueRouter from 'vue-router'
 
-import Layout from './components/layout/Layout.vue'
-import Login from './components/auth/Login.vue'
-import UsersList from './components/users/List.vue'
-import UsersCreate from './components/users/Create.vue'
-import UsersEdit from './components/users/Edit.vue'
-import RolesList from './components/roles/List.vue'
-import RolesCreate from './components/roles/Create.vue'
-import RolesEdit from './components/roles/Edit.vue'
-import AnnouncementList from './components/notifications/List.vue'
-import AnnouncementCreate from './components/notifications/Create.vue'
-import Home from './components/app/Home.vue'
-import Dashboard from './components/app/Dashboard.vue'
-
-import auth from './helpers/auth'
-
 function authentication(to, from,next) {
     if(localStorage.getItem('token') === null) {
         next('/login');
@@ -27,23 +12,23 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: Login
+        component: require('./components/auth/Login.vue')
     },
     {
         path: '/',
-        component: Layout,
+        component: require('./components/layout/Layout.vue'),
         beforeEnter: authentication,
         redirect: '/home',
         children: [
             {
                 path: '/home',
                 name: 'home',
-                component: Home 
+                component: require('./components/app/Home.vue') 
             },
             {
                 path: '/dashboard',
                 name: 'dashboard',
-                component: Dashboard 
+                component: require('./components/app/Dashboard.vue') 
             },
             {
                 path: '/users',
@@ -52,17 +37,17 @@ const routes = [
                     {
                         path: '',
                         name: 'users',
-                        component: UsersList,
+                        component: require('./components/users/List.vue'),
                     },
                     {
                         path: 'create',
                         name: 'usersCreate',
-                        component: UsersCreate,
+                        component: require('./components/users/Create.vue'),
                     },
                     {
                         path: 'edit/:id',
                         name: 'usersEdit',
-                        component: UsersEdit,
+                        component: require('./components/users/Edit.vue'),
                     }
                 ]
             },
@@ -73,17 +58,17 @@ const routes = [
                     {
                         path: '',
                         name: 'roles',
-                        component: RolesList,
+                        component: require('./components/roles/List.vue'),
                     },
                     {
                         path: 'create',
                         name: 'rolesCreate',
-                        component: RolesCreate,
+                        component: require('./components/roles/Create.vue'),
                     },
                     {
                         path: 'edit/:id',
                         name: 'rolesEdit',
-                        component: RolesEdit,
+                        component: require('./components/roles/Edit.vue'),
                     }
                 ]
             },
@@ -94,12 +79,12 @@ const routes = [
                     {
                         path: '',
                         name: 'announcement',
-                        component: AnnouncementList
+                        component: require('./components/notifications/List.vue')
                     },
                     {
                         path: 'create',
                         name: 'announcementCreate',
-                        component: AnnouncementCreate
+                        component: require('./components/notifications/Create.vue')
                     }
                 ]
             }
