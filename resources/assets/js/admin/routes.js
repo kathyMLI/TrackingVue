@@ -73,6 +73,17 @@ const routes = [
                 ]
             },
             {
+                path: '/trackings',
+                component: {template: '<router-view></router-view>'},
+                children: [
+                    {
+                        path: '',
+                        name: 'trackings',
+                        component: require('./components/trackings/List.vue')
+                    }
+                ]
+            },
+            {
                 path: '/announcement',
                 component: {template: '<router-view></router-view>'},
                 children: [

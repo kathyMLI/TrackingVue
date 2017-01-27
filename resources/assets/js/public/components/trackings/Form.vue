@@ -10,7 +10,8 @@
                     <form>
                         <label class="label">Codigo</label>
                         <p class="control">
-                            <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}">
+                            <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" v-if="action != 'Editar'">
+                            <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" disabled v-else>
                         </p>
                         <span v-if="hasErrors('code')" class="help is-danger">
                                 {{ error.code[0] }}

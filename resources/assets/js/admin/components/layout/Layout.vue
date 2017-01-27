@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>
+        <!-- <div>
             <nav class="level">
                 <p class="level-item has-text-centered">
                     <router-link :to="{ name: 'home' }" class="link is-info">Home</router-link>
@@ -18,9 +18,9 @@
                     <a class="link is-info" @click="logOut()">Salir</a>
                 </p>
             </nav>
-        </div>
+        </div> -->
         <div>
-            <heroMenu></heroMenu>
+            <heroMenu @logOut="logOut"></heroMenu>
         </div>
         <div class="container">
             <!-- <div class="notifications">

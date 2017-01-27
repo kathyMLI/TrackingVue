@@ -1,26 +1,7 @@
 <template>
     <div>
         <div>
-            <nav class="level">
-                <p class="level-item has-text-centered">
-                    <router-link :to="{ name: 'home' }" class="link is-info">Home</router-link>
-                </p>
-                <p class="level-item has-text-centered">
-                    <router-link :to="{ name: 'trackings' }" class="link is-info">Paquetes</router-link>
-                </p>
-                <p class="level-item has-text-centered">
-                    <img src="img/logo2.png" alt="Aphix">
-                </p>
-                <p class="level-item has-text-centered">
-                    <a class="link is-info" @click='notificationsMenu = true'>Cuenta</a>
-                </p>
-                <p class="level-item has-text-centered">
-                    <a class="link is-info" @click="logOut()">Salir</a>
-                </p>
-            </nav>
-        </div>
-        <div>
-            <heroMenu></heroMenu>
+            <heroMenu @logOut="logOut"></heroMenu>
         </div>
         <div class="container">
             <!-- <div class="notifications">
@@ -54,9 +35,7 @@
             auth.setAuthHeader(localStorage.getItem('token'));
             resources.me()
                 .then(({data}) => {
-                    //this.me = data;
-                    //Event.fire('me', this.me);
-                    this.$store.commit('setState', data);
+                    this.me = data;
                 });
         },
         computed: {

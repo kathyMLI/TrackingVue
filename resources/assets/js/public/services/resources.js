@@ -32,5 +32,11 @@ export default {
     },
     me() {
         return axios.get('/api/me');
+    },
+    trackings() {
+        return axios.get('/api/me/trackings');
+    },
+    filterTrackings(params) {
+        return axios.get('/api/me/trackings/' + this.buildQueryParams(params));
     }
 }

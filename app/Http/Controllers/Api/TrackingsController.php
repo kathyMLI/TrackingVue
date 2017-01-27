@@ -12,12 +12,12 @@ use App\Http\Controllers\ApiController;
 
 class TrackingsController extends ApiController
 {
-    public function index(TrackingFilter $filter, User $user)
+    public function index(TrackingFilter $filter)
     {
-        return $user->trackings()->filter($filter)->paginate();
+        return Tracking::with('users')->filter($filter)->paginate();
     }
 
-    public function store(Request $request, User $user)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'code' => 'required|alpha_num|max:255',
@@ -30,8 +30,8 @@ class TrackingsController extends ApiController
             $tracking = Tracking::getByCode($request->code);
         }
 
-        if ($user->canAttach($request->code)) {
-            $user->trackings()->attach(
+        if ($request->user()->canAttach($request->code)) {
+            $request->user()->trackings()->attach(
                 $tracking->first()->id,
                 ['description' => $request->description]
             );
@@ -42,18 +42,18 @@ class TrackingsController extends ApiController
         return $this->respondWithInternalServerError();
     }
 
-    public function show(Tracking $tracking)
+    public function show(Request $request, Tracking $tracking)
     {
-        return $tracking;
+        return $request->user()->trackings()->where('id', $tracking->id)->get();
     }
 
-    public function update(Request $request, User $user, Tracking $tracking)
+    public function update(Request $request, Tracking $tracking)
     {
         $this->validate($request, [
             'description' => 'required|max:255'
         ]);
 
-        $user->trackings()->updateExistingPivot(
+        $request->user()->trackings()->updateExistingPivot(
             $tracking->id,
             ['description' => $request->description]
         );
@@ -61,17 +61,14 @@ class TrackingsController extends ApiController
         return $this->respondUpdate();
     }
 
-    public function destroy(User $user, Tracking $tracking)
+    public function destroy(Request $request, Tracking $tracking)
     {
-        $user->trackings()->detach($tracking->id);
+        $request->user()->trackings()->detach($tracking->id);
         if (User::hasTrackingCode($tracking->code)) {
             Tracking::destroy($tracking->id);
         }
         
         return $this->respondDestroy();
     }
-
-    public function all(TrackingFilter $filter) {
-        return Tracking::with('users')->filter($filter)->paginate();
-    }
+    
 }

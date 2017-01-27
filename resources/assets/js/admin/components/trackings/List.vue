@@ -5,13 +5,13 @@
             <hr>
         </div>
         <div class="">
-            <div class="">
+<!--             <div class="">
                 <div class="">
                     <div class="pull-right">
                         <router-link :to="{ name: 'trackingsCreate' }" class="button is-primary">Nuevo Paquete</router-link>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="">
                 <article class="">
                     <div id="users-table">
@@ -20,7 +20,6 @@
                                 <thead>
                                     <tr>
                                         <th>Codigo</th>
-                                        <th>Descripcion</th>
                                         <th>Estado</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -28,17 +27,15 @@
                                 <tbody>
                                     <tr>
                                         <td><p class="control"><input v-model="search.code" v-on:blur="filter" type="text" class="input" placeholder="Codigo"></p></td>
-                                        <td><p class="control"><input v-model="search.description" v-on:blur="filter" type="text" class="input" placeholder="Descripcion"></p></td>
                                         <td><p class="control"><input v-model="search.delivered" v-on:blur="filter" type="text" class="input" placeholder="Estado"></p></td>
                                         <td></td>
                                     </tr>
                                     <tr v-for="(track, index) in data.data">
                                         <td>{{ track.code }}</td>
-                                        <td>{{ setString(track.pivot.description) }}</td>
                                         <td>{{ track.delivered}}</td>
                                         <td>
                                             <a class="button" @click="setModal(track)"><i class="fa fa-eye"></i></a>
-                                            <router-link :to="{ name: 'trackingsEdit', params: { id: track.id} }" class="button"><span class="fa fa-pencil-square-o"></span></router-link>
+                                            <!-- <router-link :to="{ name: 'trackingsEdit', params: { id: track.id} }" class="button"><span class="fa fa-pencil-square-o"></span></router-link> -->
                                             <a class="button is-danger" @click="destroy(track.id, index)"><span class="fa fa-trash"></span></a>
                                         </td>
                                     </tr>
@@ -56,7 +53,7 @@
                                     <button class="delete" @click="modal.show = false"></button>
                                 </header>
                                 <section class="modal-card-body">
-                                    {{ modal.data.pivot.description }}
+                                    {{ modal.data.delivered }}
                                 </section>
                             </div>
                         </div>
@@ -72,6 +69,7 @@
     import router from '../../routes'
     import list from '../../mixins/list'
     export default {
+        mixins: [list],
         data() {
             return {
                 data: {
@@ -92,17 +90,9 @@
                             description: ''
                         }
                     }
-                }
+                },
+                resource: 'trackings'
             }
-        },
-        beforeMount() {
-            resources.trackings()
-                .then((data) => {
-                    this.data.data = data.data.data;
-                    this.data.totalItems = data.data.total;
-                    this.data.itemsPerPage = data.data.per_page;
-                    this.data.currentPage = data.data.current_page;
-                })
         },
         methods: {
             filter() {
@@ -113,7 +103,7 @@
                     delivered: this.search.roles
                 }});
                 console.log('camibo');
-                resources.filterTrackings(router.currentRoute.query)
+                resources.filterResources(this.resource, router.currentRoute.query)
                     .then((data) => {
                         this.data.data = data.data.data;
                         this.data.totalItems = data.data.total;

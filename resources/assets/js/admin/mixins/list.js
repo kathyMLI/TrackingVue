@@ -2,7 +2,7 @@ import resources from '../services/resources'
 import confirm from '../helpers/confirm'
 export default {
     beforeMount() {
-        resources.filterResources(this.resource, '')
+        resources.getResources(this.resource)
             .then((data) => {
                 this.data.data = data.data.data;
                 this.data.totalItems = data.data.total;

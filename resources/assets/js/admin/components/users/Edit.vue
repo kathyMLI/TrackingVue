@@ -30,7 +30,6 @@
                     this.data.email = data.data.email;
                     this.data.rut = data.data.rut;
                     this.data.roles = data.data.roles;
-                    this.$Progress.finish();
                     Event.fire('dataUser', this.data);
                 });
             resources.getResources('roles')
