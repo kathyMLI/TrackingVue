@@ -31,7 +31,7 @@ const routes = [
                 component: require('./components/app/Dashboard.vue')
             },
             {
-                path: '/tracking',
+                path: '/trackings',
                 component: {template: '<router-view></router-view>'},
                 children: [
                     {
@@ -45,7 +45,7 @@ const routes = [
                         component: require('./components/trackings/Create.vue')
                     },
                     {
-                        path: 'edit',
+                        path: 'edit/:id',
                         name: 'trackingsEdit',
                         component: require('./components/trackings/Edit.vue')
                     }

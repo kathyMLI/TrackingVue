@@ -1,6 +1,22 @@
 <template>
     <div>
         <section class="hero is-primary">
+            <div class="hero-head">
+                <header class="nav">
+                    <div class="container">
+                        <div class="nav-left">
+                            <a class="nav-item">
+                                <img src="img/logo2.png" alt="Aphix">
+                            </a>
+                        </div>
+                        <div class="nav-right nav-menu">
+                            <router-link :to="{ name: 'home' }" class="nav-item">Home</router-link>
+                            <router-link :to="{ name: 'trackings' }" class="nav-item">Administracion</router-link>
+                            <a class="nav-item" @click="logOut()">Salir</a>
+                        </div> 
+                    </div>
+                </header>
+            </div>
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <h1 class="title">
@@ -29,6 +45,11 @@
         computed: {
             state: function() {
                 return this.$route.name;
+            }
+        },
+        methods: {
+            logOut() {
+                this.$emit('logOut');
             }
         }
     }

@@ -2,23 +2,19 @@
     <trackingForm :action="action" @submit="create"></trackingForm>
 </template>
 <script>
-    import trackingService from '../../services/trackingService'
+    import resources from '../../services/resources'
     import router from '../../routes'
     export default {
         data() {
             return {
                 resource: 'trackings',
                 action: 'Crear',
-                error: '',
-                me: {}
+                error: ''
             }
-        },
-        mounted() {
-            Event.listen('me', (msg) => { this.me = msg});
         },
         methods: {
             create(tracking) {
-                trackingService.createResource(this.me.id, tracking)
+                resources.createResource(this.resource, tracking)
                     .then((data) => {
                         console.log('creado');
                         router.push({ name: 'trackings' });

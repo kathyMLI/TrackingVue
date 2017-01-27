@@ -61,20 +61,10 @@
                         auth.user.authenticated = true;
                         auth.setAuthHeader(localStorage.getItem('token'));
                         router.push({ name: 'home'});
-                        this.$message({
-                            showClose: true,
-                            message: 'Bienvenido',
-                            type: 'success'
-                        });
                     })
                     .catch((data) => {
                         this.error = data.response.data;
                         this.hasError = true;
-                        this.$message({
-                            showClose: true,
-                            message: 'Oops, error al entrar',
-                            type: 'error'
-                        });
                     });
             },
             hasErrors(property) {
