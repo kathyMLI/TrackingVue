@@ -32,6 +32,10 @@ class PermissionsAndRoleSeeder extends Seeder
             'name' => 'admin',
             'label' => 'Administrador del sistema'
         ]);
+        Role::firstOrCreate([
+            'name' => 'user',
+            'label' => 'Usuario'
+        ]);
         foreach (Permission::all() as $permission) {
             if (! $roleAdmin->hasPermissionTo($permission)) {
                 $roleAdmin->givePermissionTo($permission->name);
