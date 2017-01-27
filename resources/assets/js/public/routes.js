@@ -21,9 +21,12 @@ const routes = [
     },
     {
         path: '/',
+        component: require('./components/layout/Index.vue')
+    },
+    {
+        path: '/home',
         component: require('./components/layout/Layout.vue'),
         beforeEnter: authentication,
-        redirect: '/home',
         children: [
             {
                 path: '/home',

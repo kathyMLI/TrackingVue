@@ -59,6 +59,8 @@
 <script>
     import router from '../../routes'
     import auth from '../../helpers/auth'
+    import register from '../../services/auth'
+
     export default {
         props: {
             defaultName: {
@@ -108,21 +110,13 @@
         },
         methods: {
             submit() {
-                this.$emit('submit', this.data);
-                var credentials = {
-                    email: this.data.email,
-                    password: this.data.password
-                }
-                auth.login(credentials)
+                register.register(this.data)
                     .then((data) => {
-                        localStorage.setItem('token', data.data.token);
-                        auth.user.authenticated = true;
-                        auth.setAuthHeader(localStorage.getItem('token'));
                         router.push({ name: 'home'});
                     })
                     .catch((data) => {
-                        this.error = data.response.data;
-                        this.hasError = true;
+                        Event.fire('errorForm', data.response.data);
+                        Event.fire('rolesForm', this.roles);
                     });
             },
             hasErrors(property) {

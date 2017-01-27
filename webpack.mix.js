@@ -16,6 +16,3 @@ mix.js('resources/assets/js/admin/app.js', 'public/js/admin.js')
 
 mix.js('resources/assets/js/public/app.js', 'public/js/public.js')
     .sass('resources/assets/sass/public.scss', 'public/css/public.css');
-
-mix.js('resources/assets/js/home/app.js', 'public/js/home.js')
-    .sass('resources/assets/sass/home.scss', 'public/css/home.css');
