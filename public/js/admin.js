@@ -63,7 +63,11 @@
 /******/ 	__webpack_require__.p = "./";
 
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 134);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 139);
+>>>>>>> master
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -438,6 +442,106 @@ module.exports = {
 
 
 /***/ }),
+<<<<<<< HEAD
+=======
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_router__);
+
+
+function authentication(to, from, next) {
+    if (localStorage.getItem('token') === null) {
+        next('/login');
+    } else {
+        next();
+    }
+}
+
+var routes = [{
+    path: '/login',
+    name: 'login',
+    component: __webpack_require__(54)
+}, {
+    path: '/',
+    component: __webpack_require__(55),
+    beforeEnter: authentication,
+    redirect: '/home',
+    children: [{
+        path: '/home',
+        name: 'home',
+        component: __webpack_require__(95)
+    }, {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: __webpack_require__(94)
+    }, {
+        path: '/users',
+        component: { template: '<router-view></router-view>' },
+        children: [{
+            path: '',
+            name: 'users',
+            component: __webpack_require__(57)
+        }, {
+            path: 'create',
+            name: 'usersCreate',
+            component: __webpack_require__(56)
+        }, {
+            path: 'edit/:id',
+            name: 'usersEdit',
+            component: __webpack_require__(103)
+        }]
+    }, {
+        path: '/roles',
+        component: { template: '<router-view></router-view>' },
+        children: [{
+            path: '',
+            name: 'roles',
+            component: __webpack_require__(102)
+        }, {
+            path: 'create',
+            name: 'rolesCreate',
+            component: __webpack_require__(99)
+        }, {
+            path: 'edit/:id',
+            name: 'rolesEdit',
+            component: __webpack_require__(100)
+        }]
+    }, {
+        path: '/announcement',
+        component: { template: '<router-view></router-view>' },
+        children: [{
+            path: '',
+            name: 'announcement',
+            component: __webpack_require__(98)
+        }, {
+            path: 'create',
+            name: 'announcementCreate',
+            component: __webpack_require__(97)
+        }]
+    }]
+}];
+
+var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router___default.a({
+    routes: routes,
+    linkActiveClass: 'is-active'
+});
+
+router.beforeEach(function (to, from, next) {
+    router.app.$Progress.start();
+    next();
+});
+
+router.afterEach(function () {
+    router.app.$Progress.finish();
+});
+
+/* harmony default export */ __webpack_exports__["a"] = router;
+
+/***/ }),
+>>>>>>> master
 /* 2 */
 /***/ (function(module, exports) {
 
@@ -761,13 +865,26 @@ router.afterEach(function () {
 };
 
 /***/ }),
+<<<<<<< HEAD
+=======
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(17);
+
+/***/ }),
+>>>>>>> master
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(0);
+>>>>>>> master
 var normalizeHeaderName = __webpack_require__(31);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
@@ -862,7 +979,8 @@ module.exports = defaults;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(17);
@@ -874,7 +992,11 @@ module.exports = __webpack_require__(17);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(0);
+>>>>>>> master
 var settle = __webpack_require__(23);
 var buildURL = __webpack_require__(26);
 var parseHeaders = __webpack_require__(32);
@@ -1133,8 +1255,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 12 */,
 /* 13 */
+=======
+/* 12 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -13675,6 +13801,10 @@ module.exports = g;
 
 
 /***/ }),
+<<<<<<< HEAD
+=======
+/* 15 */,
+>>>>>>> master
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15242,7 +15372,11 @@ if (window.Sweetalert2) window.sweetAlert = window.swal = window.Sweetalert2;
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(0);
+>>>>>>> master
 var bind = __webpack_require__(11);
 var Axios = __webpack_require__(19);
 var defaults = __webpack_require__(5);
@@ -15366,7 +15500,11 @@ module.exports = CancelToken;
 
 
 var defaults = __webpack_require__(5);
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(0);
+>>>>>>> master
 var InterceptorManager = __webpack_require__(20);
 var dispatchRequest = __webpack_require__(21);
 var isAbsoluteURL = __webpack_require__(29);
@@ -15516,7 +15654,11 @@ module.exports = InterceptorManager;
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(0);
+>>>>>>> master
 var transformData = __webpack_require__(24);
 var isCancel = __webpack_require__(9);
 var defaults = __webpack_require__(5);
@@ -16173,8 +16315,12 @@ var inBrowser = typeof window !== 'undefined';
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 36 */,
 /* 37 */
+=======
+/* 36 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(38)();
@@ -33341,6 +33487,7 @@ module.exports = function() {
 
 
 /* styles */
+<<<<<<< HEAD
 __webpack_require__(46)
 
 var Component = __webpack_require__(0)(
@@ -33357,6 +33504,31 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/node_modules/vue-progressbar/vue-progressbar.vue"
 if (Component.options.functional) {console.error("[vue-loader] vue-progressbar.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+__webpack_require__(45)
+
+/* script */
+__vue_exports__ = __webpack_require__(34)
+
+/* template */
+var __vue_template__ = __webpack_require__(40)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/node_modules/vue-progressbar/vue-progressbar.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "vue-progressbar"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -42535,6 +42707,7 @@ module.exports = function(module) {
 /* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 var Component = __webpack_require__(0)(
   /* name */
   "Login",
@@ -42549,6 +42722,32 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/auth/Login.vue"
 if (Component.options.functional) {console.error("[vue-loader] Login.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(66)
+
+/* template */
+var __vue_template__ = __webpack_require__(117)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/auth/Login.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Login"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -42570,6 +42769,7 @@ module.exports = Component.exports
 /* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 var Component = __webpack_require__(0)(
   /* name */
   "Layout",
@@ -42584,6 +42784,32 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/layout/Layout.vue"
 if (Component.options.functional) {console.error("[vue-loader] Layout.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(67)
+
+/* template */
+var __vue_template__ = __webpack_require__(123)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/layout/Layout.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Layout"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -42605,6 +42831,7 @@ module.exports = Component.exports
 /* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 var Component = __webpack_require__(0)(
   /* name */
   "Create",
@@ -42619,6 +42846,32 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/users/Create.vue"
 if (Component.options.functional) {console.error("[vue-loader] Create.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(75)
+
+/* template */
+var __vue_template__ = __webpack_require__(124)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/users/Create.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Create"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -42640,6 +42893,7 @@ module.exports = Component.exports
 /* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 var Component = __webpack_require__(0)(
   /* name */
   "List",
@@ -42654,6 +42908,32 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/users/List.vue"
 if (Component.options.functional) {console.error("[vue-loader] List.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(78)
+
+/* template */
+var __vue_template__ = __webpack_require__(138)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/users/List.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "List"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -42679,10 +42959,17 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_auth__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(6);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_auth__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(4);
+>>>>>>> master
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_router__ = __webpack_require__(14);
@@ -42714,6 +43001,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_6_vue_progressbar___default.a, {
 	thickness: '3px'
 });
 
+<<<<<<< HEAD
 Vue.component('layout', __webpack_require__(56));
 Vue.component('login', __webpack_require__(55));
 Vue.component('userlist', __webpack_require__(58));
@@ -42722,6 +43010,16 @@ Vue.component('user-form', __webpack_require__(102));
 Vue.component('rol-form', __webpack_require__(99));
 //Vue.component('notifications', require('./components/layout/Notifications.vue'));
 Vue.component('heroMenu', __webpack_require__(94));
+=======
+Vue.component('layout', __webpack_require__(55));
+Vue.component('login', __webpack_require__(54));
+Vue.component('userlist', __webpack_require__(57));
+Vue.component('userCreate', __webpack_require__(56));
+Vue.component('user-form', __webpack_require__(104));
+Vue.component('rol-form', __webpack_require__(101));
+//Vue.component('notifications', require('./components/layout/Notifications.vue'));
+Vue.component('heroMenu', __webpack_require__(96));
+>>>>>>> master
 
 Vue.component('multiselect', __WEBPACK_IMPORTED_MODULE_5_vue_multiselect___default.a);
 
@@ -42814,7 +43112,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(3);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(1);
+>>>>>>> master
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_auth__ = __webpack_require__(35);
 //
 //
@@ -42908,8 +43210,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_auth__ = __webpack_require__(35);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_resources__ = __webpack_require__(4);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_resources__ = __webpack_require__(3);
+>>>>>>> master
 //
 //
 //
@@ -43108,7 +43415,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_notificationService__ = __webpack_require__(51);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_notificationService__ = __webpack_require__(50);
+>>>>>>> master
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert2__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sweetalert2__);
 //
@@ -43948,7 +44259,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 85 */,
 /* 86 */,
 /* 87 */,
+<<<<<<< HEAD
 /* 88 */
+=======
+/* 88 */,
+/* 89 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {
@@ -43999,6 +44315,7 @@ window.axios.defaults.headers.common = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 89 */,
 /* 90 */,
 /* 91 */,
@@ -44019,6 +44336,39 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/app/Dashboard.vue"
 if (Component.options.functional) {console.error("[vue-loader] Dashboard.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(64)
+
+/* template */
+var __vue_template__ = __webpack_require__(115)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/app/Dashboard.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Dashboard"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44037,6 +44387,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44054,6 +44405,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/app/Home.vue"
 if (Component.options.functional) {console.error("[vue-loader] Home.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(65)
+
+/* template */
+var __vue_template__ = __webpack_require__(134)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/app/Home.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Home"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44072,6 +44452,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44089,6 +44470,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/layout/Menu.vue"
 if (Component.options.functional) {console.error("[vue-loader] Menu.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(68)
+
+/* template */
+var __vue_template__ = __webpack_require__(114)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/layout/Menu.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Menu"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44107,6 +44517,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44124,6 +44535,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/notifications/Create.vue"
 if (Component.options.functional) {console.error("[vue-loader] Create.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(69)
+
+/* template */
+var __vue_template__ = __webpack_require__(120)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/notifications/Create.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Create"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44142,6 +44582,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44159,6 +44600,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/notifications/List.vue"
 if (Component.options.functional) {console.error("[vue-loader] List.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(70)
+
+/* template */
+var __vue_template__ = __webpack_require__(122)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/notifications/List.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "List"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44177,6 +44647,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44194,6 +44665,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/roles/Create.vue"
 if (Component.options.functional) {console.error("[vue-loader] Create.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(71)
+
+/* template */
+var __vue_template__ = __webpack_require__(121)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/roles/Create.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Create"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44212,6 +44712,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44229,6 +44730,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/roles/Edit.vue"
 if (Component.options.functional) {console.error("[vue-loader] Edit.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(72)
+
+/* template */
+var __vue_template__ = __webpack_require__(128)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/roles/Edit.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Edit"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44247,6 +44777,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44264,6 +44795,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/roles/Form.vue"
 if (Component.options.functional) {console.error("[vue-loader] Form.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(73)
+
+/* template */
+var __vue_template__ = __webpack_require__(135)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/roles/Form.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Form"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44282,6 +44842,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44299,6 +44860,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/roles/List.vue"
 if (Component.options.functional) {console.error("[vue-loader] List.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(74)
+
+/* template */
+var __vue_template__ = __webpack_require__(132)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/roles/List.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "List"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44317,6 +44907,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44334,6 +44925,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/users/Edit.vue"
 if (Component.options.functional) {console.error("[vue-loader] Edit.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(76)
+
+/* template */
+var __vue_template__ = __webpack_require__(136)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/users/Edit.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Edit"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44352,6 +44972,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44369,6 +44990,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/admin/components/users/Form.vue"
 if (Component.options.functional) {console.error("[vue-loader] Form.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(77)
+
+/* template */
+var __vue_template__ = __webpack_require__(125)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/admin/components/users/Form.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Form"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -44387,8 +45037,11 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 103 */,
 /* 104 */,
+=======
+>>>>>>> master
 /* 105 */,
 /* 106 */,
 /* 107 */,
@@ -44396,7 +45049,13 @@ module.exports = Component.exports
 /* 109 */,
 /* 110 */,
 /* 111 */,
+<<<<<<< HEAD
 /* 112 */
+=======
+/* 112 */,
+/* 113 */,
+/* 114 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -44544,7 +45203,11 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 113 */
+=======
+/* 115 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -44647,8 +45310,12 @@ if (false) {
 
 /***/ }),
 /* 116 */,
+<<<<<<< HEAD
 /* 117 */,
 /* 118 */
+=======
+/* 117 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -44760,7 +45427,13 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 119 */
+=======
+/* 118 */,
+/* 119 */,
+/* 120 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -44893,6 +45566,35 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_vm._v("\n                        Enviar\n                    ")])])])])])])
+<<<<<<< HEAD
+=======
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('h1', {
+    staticClass: "title"
+  }, [_vm._v("Nuevo anuncio")]), _vm._v(" "), _c('hr')])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-38f92b88", module.exports)
+  }
+}
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('rol-form', {
+    attrs: {
+      "action": _vm.action
+    },
+    on: {
+      "submit": _vm.create
+    }
+  })
+>>>>>>> master
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -44903,7 +45605,11 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 121 */
+=======
+/* 122 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -44959,12 +45665,90 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
+<<<<<<< HEAD
      require("vue-hot-reload-api").rerender("data-v-4f028876", module.exports)
+=======
+     require("vue-hot-reload-api").rerender("data-v-3d60e2de", module.exports)
   }
 }
 
 /***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('div', [_c('nav', {
+    staticClass: "level"
+  }, [_c('p', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('router-link', {
+    staticClass: "link is-info",
+    attrs: {
+      "to": {
+        name: 'home'
+      }
+    }
+  }, [_vm._v("Home")])], 1), _vm._v(" "), _c('p', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('router-link', {
+    staticClass: "link is-info",
+    attrs: {
+      "to": {
+        name: 'users'
+      }
+    }
+  }, [_vm._v("Administracion")])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('p', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('a', {
+    staticClass: "link is-info",
+    on: {
+      "click": function($event) {
+        _vm.notificationsMenu = true
+      }
+    }
+  }, [_vm._v("Cuenta")])]), _vm._v(" "), _c('p', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('a', {
+    staticClass: "link is-info",
+    on: {
+      "click": function($event) {
+        _vm.logOut()
+      }
+    }
+  }, [_vm._v("Salir")])])])]), _vm._v(" "), _c('div', [_c('heroMenu')], 1), _vm._v(" "), _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "content column"
+  }, [_c('div', {
+    staticClass: "section"
+  }, [_c('div', {
+    staticClass: "container"
+  }, [_c('router-view')], 1)])])]), _vm._v(" "), _c('vue-progress-bar')], 1)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('p', {
+    staticClass: "level-item has-text-centered"
+  }, [_c('img', {
+    attrs: {
+      "src": "img/logo2.png",
+      "alt": "Aphix"
+    }
+  })])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-3d7baf06", module.exports)
+>>>>>>> master
+  }
+}
+
+/***/ }),
+<<<<<<< HEAD
 /* 122 */
+=======
+/* 124 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -44986,8 +45770,11 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 123 */,
 /* 124 */,
+=======
+>>>>>>> master
 /* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -45021,6 +45808,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         name: 'announcement'
       }
     }
+<<<<<<< HEAD
   }, [_c('a', [_vm._v("Anuncios")])])], 1)])])]) : _vm._e()])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -45033,6 +45821,34 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "subtitle"
   }, [_vm._v("\n                    Laravel + Vue\n                ")])])])
 }]}
+=======
+  }, [_vm._v("\n                        Enviar\n                    ")])])])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-4c87d7e4", module.exports)
+  }
+}
+
+/***/ }),
+/* 126 */,
+/* 127 */,
+/* 128 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('rol-form', {
+    attrs: {
+      "action": _vm.action
+    },
+    on: {
+      "submit": _vm.update
+    }
+  })], 1)
+},staticRenderFns: []}
+>>>>>>> master
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -45042,7 +45858,14 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 126 */
+=======
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -45211,7 +46034,12 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 127 */
+=======
+/* 133 */,
+/* 134 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -45233,7 +46061,7 @@ if (false) {
 }
 
 /***/ }),
-/* 128 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -45328,7 +46156,103 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "help is-danger"
   }, [_vm._v("\n                            " + _vm._s(_vm.error.email[0]) + "\n                        ")]) : _vm._e()]), _vm._v(" "), _c('label', {
     staticClass: "label"
+<<<<<<< HEAD
   }, [_vm._v("Rut")]), _vm._v(" "), _c('p', {
+=======
+  }, [_vm._v("Permisos")]), _vm._v(" "), _c('div', {
+    class: {
+      'is-danger': _vm.hasErrors('permissions')
+    }
+  }, [_c('multiselect', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.data.permissions),
+      expression: "data.permissions"
+    }],
+    attrs: {
+      "tag-placeholder": "Agregar este permiso",
+      "placeholder": "Selecciona permisos...",
+      "track-by": "label",
+      "label": "label",
+      "hide-selected": true,
+      "clear-on-select": false,
+      "close-on-select": false,
+      "multiple": true,
+      "options": _vm.permissions
+    },
+    domProps: {
+      "value": (_vm.data.permissions)
+    },
+    on: {
+      "input": function($event) {
+        _vm.data.permissions = $event
+      }
+    }
+  }, [(_vm.hasErrors('permissions')) ? _c('span', {
+    staticClass: "help is-danger"
+  }, [_vm._v("\n                            " + _vm._s(_vm.error.permissions[0]) + "\n                        ")]) : _vm._e()])], 1), _vm._v(" "), _c('br'), _vm._v(" "), _c('button', {
+    staticClass: "button is-primary",
+    on: {
+      "click": function($event) {
+        _vm.submit()
+      }
+    }
+  }, [_vm._v("\n                        Enviar\n                    ")])])])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-d9be5a62", module.exports)
+  }
+}
+
+/***/ }),
+/* 136 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('user-form', {
+    attrs: {
+      "action": _vm.action
+    },
+    on: {
+      "submit": _vm.update
+    }
+  })], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-e06db3ac", module.exports)
+  }
+}
+
+/***/ }),
+/* 137 */,
+/* 138 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', [_c('div', {}, [_c('div', {}, [_c('div', {
+    staticClass: "pull-right"
+  }, [_c('router-link', {
+    staticClass: "button is-primary",
+    attrs: {
+      "to": {
+        name: 'usersCreate'
+      }
+    }
+  }, [_vm._v("Nuevo Usuario")])], 1)])]), _vm._v(" "), _c('div', {}, [_c('article', {}, [_c('div', {
+    attrs: {
+      "id": "users-table"
+    }
+  }, [_c('div', [_c('table', {
+    staticClass: "table"
+  }, [_vm._m(1), _vm._v(" "), _c('tbody', [_c('tr', [_c('td', [_c('p', {
+>>>>>>> master
     staticClass: "control"
   }, [_c('input', {
     directives: [{
@@ -45541,7 +46465,7 @@ if (false) {
 }
 
 /***/ }),
-/* 132 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

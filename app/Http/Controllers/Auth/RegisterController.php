@@ -28,6 +28,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
+            'rut' => 'required|max:15|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -37,10 +38,11 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'rut' => $data['rut'],
             'password' => $data['password'],
             'api_token' => str_random(60),
         ]);
-        $user->notify(new WelcomeNotification);
+        // $user->notify(new WelcomeNotification);
         return $user;
     }
 }

@@ -63,7 +63,11 @@
 /******/ 	__webpack_require__.p = "./";
 
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 135);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 140);
+>>>>>>> master
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -625,14 +629,27 @@ process.umask = function() { return 0; };
 
 /***/ }),
 /* 3 */,
+<<<<<<< HEAD
 /* 4 */,
+=======
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(17);
+
+/***/ }),
+>>>>>>> master
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(0);
+>>>>>>> master
 var normalizeHeaderName = __webpack_require__(31);
 
 var PROTECTION_PREFIX = /^\)\]\}',?\n/;
@@ -728,6 +745,81 @@ module.exports = defaults;
 
 /***/ }),
 /* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_router__);
+
+
+function authentication(to, from, next) {
+    if (localStorage.getItem('token') === null) {
+        next('/login');
+    } else {
+        next();
+    }
+}
+
+var routes = [{
+    path: '/login',
+    name: 'login',
+    component: __webpack_require__(58)
+}, {
+    path: '/register',
+    name: 'register',
+    component: __webpack_require__(107)
+}, {
+    path: '/',
+    component: __webpack_require__(108)
+}, {
+    path: '/home',
+    component: __webpack_require__(59),
+    beforeEnter: authentication,
+    children: [{
+        path: '/home',
+        name: 'home',
+        component: __webpack_require__(106)
+    }, {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: __webpack_require__(105)
+    }, {
+        path: '/tracking',
+        component: { template: '<router-view></router-view>' },
+        children: [{
+            path: '',
+            name: 'trackings',
+            component: __webpack_require__(113)
+        }, {
+            path: 'create',
+            name: 'trackingsCreate',
+            component: __webpack_require__(110)
+        }, {
+            path: 'edit',
+            name: 'trackingsEdit',
+            component: __webpack_require__(111)
+        }]
+    }]
+}];
+
+var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router___default.a({
+    routes: routes,
+    linkActiveClass: 'is-active'
+});
+
+router.beforeEach(function (to, from, next) {
+    router.app.$Progress.start();
+    next();
+});
+
+router.afterEach(function () {
+    router.app.$Progress.finish();
+});
+
+/* harmony default export */ __webpack_exports__["a"] = router;
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(17);
@@ -739,7 +831,11 @@ module.exports = __webpack_require__(17);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(0);
+>>>>>>> master
 var settle = __webpack_require__(23);
 var buildURL = __webpack_require__(26);
 var parseHeaders = __webpack_require__(32);
@@ -999,6 +1095,7 @@ module.exports = function bind(fn, thisArg) {
 
 /***/ }),
 /* 12 */
+<<<<<<< HEAD
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1068,6 +1165,8 @@ router.afterEach(function () {
 
 /***/ }),
 /* 13 */
+=======
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -13608,6 +13707,37 @@ module.exports = g;
 
 
 /***/ }),
+<<<<<<< HEAD
+=======
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = {
+
+    user: {
+        authenticated: false
+    },
+
+    login: function login(creds) {
+        return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/login/', creds);
+    },
+    setAuthHeader: function setAuthHeader(header) {
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.defaults.headers.Authorization = 'Bearer ' + header;
+    },
+    logOut: function logOut() {
+        localStorage.removeItem('token');
+        this.setAuthHeader(null);
+        this.user.authenticated = false;
+    }
+};
+
+/***/ }),
+>>>>>>> master
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15175,7 +15305,11 @@ if (window.Sweetalert2) window.sweetAlert = window.swal = window.Sweetalert2;
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(0);
+>>>>>>> master
 var bind = __webpack_require__(11);
 var Axios = __webpack_require__(19);
 var defaults = __webpack_require__(5);
@@ -15299,7 +15433,11 @@ module.exports = CancelToken;
 
 
 var defaults = __webpack_require__(5);
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(0);
+>>>>>>> master
 var InterceptorManager = __webpack_require__(20);
 var dispatchRequest = __webpack_require__(21);
 var isAbsoluteURL = __webpack_require__(29);
@@ -15449,7 +15587,11 @@ module.exports = InterceptorManager;
 "use strict";
 
 
+<<<<<<< HEAD
 var utils = __webpack_require__(1);
+=======
+var utils = __webpack_require__(0);
+>>>>>>> master
 var transformData = __webpack_require__(24);
 var isCancel = __webpack_require__(9);
 var defaults = __webpack_require__(5);
@@ -16085,6 +16227,7 @@ var inBrowser = typeof window !== 'undefined';
 /***/ }),
 /* 35 */,
 /* 36 */
+<<<<<<< HEAD
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16113,6 +16256,8 @@ var inBrowser = typeof window !== 'undefined';
 
 /***/ }),
 /* 37 */
+=======
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(38)();
@@ -33279,6 +33424,7 @@ module.exports = function() {
 
 
 /* styles */
+<<<<<<< HEAD
 __webpack_require__(46)
 
 var Component = __webpack_require__(0)(
@@ -33295,6 +33441,31 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/node_modules/vue-progressbar/vue-progressbar.vue"
 if (Component.options.functional) {console.error("[vue-loader] vue-progressbar.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+__webpack_require__(45)
+
+/* script */
+__vue_exports__ = __webpack_require__(34)
+
+/* template */
+var __vue_template__ = __webpack_require__(40)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/node_modules/vue-progressbar/vue-progressbar.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "vue-progressbar"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -42447,6 +42618,7 @@ module.exports = function(module) {
 /* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 var Component = __webpack_require__(0)(
   /* name */
   "Login",
@@ -42461,6 +42633,32 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/public/components/auth/Login.vue"
 if (Component.options.functional) {console.error("[vue-loader] Login.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(81)
+
+/* template */
+var __vue_template__ = __webpack_require__(118)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/public/components/auth/Login.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Login"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -42482,6 +42680,7 @@ module.exports = Component.exports
 /* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 var Component = __webpack_require__(0)(
   /* name */
   "Layout",
@@ -42496,6 +42695,32 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/public/components/layout/Layout.vue"
 if (Component.options.functional) {console.error("[vue-loader] Layout.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(84)
+
+/* template */
+var __vue_template__ = __webpack_require__(137)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/public/components/layout/Layout.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Layout"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -42520,6 +42745,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(133);
@@ -42527,6 +42753,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_auth__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_router__ = __webpack_require__(14);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__bootstrap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_auth__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__routes__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_router__ = __webpack_require__(13);
+>>>>>>> master
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_router__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_multiselect__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_multiselect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue_multiselect__);
@@ -42561,8 +42796,13 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_6_vue_progressbar___default.a, {
 Vue.component('layout', __webpack_require__(60));
 Vue.component('login', __webpack_require__(59));
 //Vue.component('notifications', require('./components/layout/Notifications.vue'));
+<<<<<<< HEAD
 Vue.component('heroMenu', __webpack_require__(105));
 Vue.component('trackingForm', __webpack_require__(108));
+=======
+Vue.component('heroMenu', __webpack_require__(109));
+Vue.component('trackingForm', __webpack_require__(112));
+>>>>>>> master
 
 Vue.component('multiselect', __WEBPACK_IMPORTED_MODULE_5_vue_multiselect___default.a);
 
@@ -42671,8 +42911,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_auth__ = __webpack_require__(36);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_auth__ = __webpack_require__(15);
+>>>>>>> master
 //
 //
 //
@@ -42737,19 +42982,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 __WEBPACK_IMPORTED_MODULE_1__helpers_auth__["a" /* default */].user.authenticated = true;
                 __WEBPACK_IMPORTED_MODULE_1__helpers_auth__["a" /* default */].setAuthHeader(localStorage.getItem('token'));
                 __WEBPACK_IMPORTED_MODULE_0__routes__["a" /* default */].push({ name: 'home' });
-                _this.$message({
-                    showClose: true,
-                    message: 'Bienvenido',
-                    type: 'success'
-                });
             }).catch(function (data) {
                 _this.error = data.response.data;
                 _this.hasError = true;
-                _this.$message({
-                    showClose: true,
-                    message: 'Oops, error al entrar',
-                    type: 'error'
-                });
             });
         },
         hasErrors: function hasErrors(property) {
@@ -42764,9 +42999,209 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_auth__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_resources__ = __webpack_require__(53);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__routes__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_auth__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth__ = __webpack_require__(93);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    props: {
+        defaultName: {
+            type: String,
+            required: false
+        },
+        defaultEmail: {
+            type: String,
+            required: false
+        },
+        defaultRut: {
+            type: String,
+            required: false
+        }
+    },
+    data: function data() {
+        return {
+            data: {
+                name: '',
+                email: '',
+                rut: '',
+                password: '',
+                password_confirmation: ''
+            },
+            error: '',
+            roles: ['user']
+        };
+    },
+    beforeMount: function beforeMount() {
+        if (this.defaultName != null) {
+            this.data.name = this.defaultName;
+        }
+        if (this.defaultEmail != null) {
+            this.data.email = this.defaultEmail;
+        }
+        if (this.defaultRut != null) {
+            this.data.rut = this.defaultRut;
+        }
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        Event.listen('dataUser', function (msg) {
+            _this.data = msg;
+        });
+        Event.listen('errorForm', function (msg) {
+            _this.error = msg;
+        });
+    },
+
+    methods: {
+        submit: function submit() {
+            __WEBPACK_IMPORTED_MODULE_2__services_auth__["a" /* default */].register(this.data).then(function (data) {
+                __WEBPACK_IMPORTED_MODULE_0__routes__["a" /* default */].push({ name: 'home' });
+            });
+            // .catch((data) => {
+            //     Event.fire('errorForm', data.response.data);
+            //     Event.fire('rolesForm', this.roles);
+            // });
+
+            // var credentials = {
+            //     email: this.data.email,
+            //     password: this.data.password
+            // }
+            // auth.login(credentials)
+            //     .then((data) => {
+            //         localStorage.setItem('token', data.data.token);
+            //         auth.user.authenticated = true;
+            //         auth.setAuthHeader(localStorage.getItem('token'));
+            //         router.push({ name: 'home'});
+            //     })
+            //     .catch((data) => {
+            //         this.error = data.response.data;
+            //         this.hasError = true;
+            //     });
+        },
+        hasErrors: function hasErrors(property) {
+            return this.error.hasOwnProperty(property) ? true : false;
+        }
+    }
+};
+
+/***/ }),
+/* 83 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    mounted: function mounted() {}
+};
+
+/***/ }),
+/* 84 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_auth__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_resources__ = __webpack_require__(52);
+>>>>>>> master
 //
 //
 //
@@ -42860,11 +43295,57 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 84 */
+=======
+/* 85 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    computed: {
+        state: function state() {
+            return this.$route.name;
+        }
+    }
+};
+
+/***/ }),
+/* 86 */
+>>>>>>> master
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 //
 //
 //
@@ -42911,6 +43392,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_trackingService__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(6);
+//
+//
+//
+>>>>>>> master
 
 
 
@@ -42944,7 +43432,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 86 */
+=======
+/* 87 */
+>>>>>>> master
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -43039,14 +43531,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 87 */
+=======
+/* 88 */
+>>>>>>> master
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_trackingService__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_list__ = __webpack_require__(91);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_trackingService__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_list__ = __webpack_require__(92);
+>>>>>>> master
 //
 //
 //
@@ -43187,8 +43689,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 88 */,
 /* 89 */
+=======
+/* 89 */,
+/* 90 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {
@@ -43239,7 +43746,11 @@ window.axios.defaults.headers.common = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)))
 
 /***/ }),
+<<<<<<< HEAD
 /* 90 */
+=======
+/* 91 */
+>>>>>>> master
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -43264,12 +43775,21 @@ window.axios.defaults.headers.common = {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 91 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_resources__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_confirm__ = __webpack_require__(90);
+=======
+/* 92 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_resources__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_confirm__ = __webpack_require__(91);
+>>>>>>> master
 
 
 /* unused harmony default export */ var _unused_webpack_default_export = {
@@ -43309,8 +43829,22 @@ window.axios.defaults.headers.common = {
 };
 
 /***/ }),
+<<<<<<< HEAD
 /* 92 */,
 /* 93 */,
+=======
+/* 93 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = {
+  register: function register(data) {
+    return axios.post('/register/', data);
+  }
+};
+
+/***/ }),
+>>>>>>> master
 /* 94 */,
 /* 95 */,
 /* 96 */,
@@ -43320,6 +43854,7 @@ window.axios.defaults.headers.common = {
 /* 100 */,
 /* 101 */,
 /* 102 */,
+<<<<<<< HEAD
 /* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43337,6 +43872,37 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/public/components/app/Dashboard.vue"
 if (Component.options.functional) {console.error("[vue-loader] Dashboard.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 103 */,
+/* 104 */,
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(79)
+
+/* template */
+var __vue_template__ = __webpack_require__(127)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/public/components/app/Dashboard.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Dashboard"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -43355,6 +43921,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43372,6 +43939,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/public/components/app/Home.vue"
 if (Component.options.functional) {console.error("[vue-loader] Home.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(80)
+
+/* template */
+var __vue_template__ = __webpack_require__(130)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/public/components/app/Home.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Home"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -43390,6 +43986,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43407,6 +44004,127 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/public/components/layout/Menu.vue"
 if (Component.options.functional) {console.error("[vue-loader] Menu.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(82)
+
+/* template */
+var __vue_template__ = __webpack_require__(129)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/public/components/auth/Register.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Register"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-56d5ee12", __vue_options__)
+  } else {
+    hotAPI.reload("data-v-56d5ee12", __vue_options__)
+  }
+})()}
+if (__vue_options__.functional && typeof __vue_template__ !== "undefined") {console.error("[vue-loader] Register.vue: functional components are not supported with templates, they should use render functions.")}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(83)
+
+/* template */
+var __vue_template__ = __webpack_require__(116)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/public/components/layout/Index.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Index"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0612b220", __vue_options__)
+  } else {
+    hotAPI.reload("data-v-0612b220", __vue_options__)
+  }
+})()}
+if (__vue_options__.functional && typeof __vue_template__ !== "undefined") {console.error("[vue-loader] Index.vue: functional components are not supported with templates, they should use render functions.")}
+
+module.exports = __vue_exports__
+
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(85)
+
+/* template */
+var __vue_template__ = __webpack_require__(131)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/public/components/layout/Menu.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Menu"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -43425,6 +44143,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43442,6 +44161,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/public/components/trackings/Create.vue"
 if (Component.options.functional) {console.error("[vue-loader] Create.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(86)
+
+/* template */
+var __vue_template__ = __webpack_require__(133)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/public/components/trackings/Create.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Create"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -43460,8 +44208,13 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 107 */
 /***/ (function(module, exports, __webpack_require__) {
+=======
+/* 111 */
+/***/ (function(module, exports) {
+>>>>>>> master
 
 var Component = __webpack_require__(0)(
   /* name */
@@ -43481,6 +44234,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43498,6 +44252,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/public/components/trackings/Form.vue"
 if (Component.options.functional) {console.error("[vue-loader] Form.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(87)
+
+/* template */
+var __vue_template__ = __webpack_require__(119)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/public/components/trackings/Form.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "Form"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -43516,6 +44299,7 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43533,6 +44317,35 @@ var Component = __webpack_require__(0)(
 )
 Component.options.__file = "/home/nicolas/Documents/aphix/TrackingVue/resources/assets/js/public/components/trackings/List.vue"
 if (Component.options.functional) {console.error("[vue-loader] List.vue: functional components are not supported with templates, they should use render functions.")}
+=======
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __vue_exports__, __vue_options__
+var __vue_styles__ = {}
+
+/* script */
+__vue_exports__ = __webpack_require__(88)
+
+/* template */
+var __vue_template__ = __webpack_require__(126)
+__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+if (
+  typeof __vue_exports__.default === "object" ||
+  typeof __vue_exports__.default === "function"
+) {
+if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+__vue_options__ = __vue_exports__ = __vue_exports__.default
+}
+if (typeof __vue_options__ === "function") {
+  __vue_options__ = __vue_options__.options
+}
+__vue_options__.__file = "/home/mako/Documentos/vagrant/Code/TrackingVue/resources/assets/js/public/components/trackings/List.vue"
+if(typeof __vue_options__.name === "undefined") {
+  __vue_options__.name = "List"
+}__vue_options__.render = __vue_template__.render
+__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+>>>>>>> master
 
 /* hot reload */
 if (false) {(function () {
@@ -43551,7 +44364,55 @@ module.exports = Component.exports
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 110 */
+=======
+/* 114 */,
+/* 115 */,
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_c('nav', {
+    staticClass: "nav"
+  }, [_c('div', {
+    staticClass: "nav-right nav-menu"
+  }, [_c('a', {
+    staticClass: "nav-item",
+    attrs: {
+      "href": "/app#/login"
+    }
+  }, [_vm._v("\n\t        Login\n\t    ")]), _vm._v(" "), _c('a', {
+    staticClass: "nav-item",
+    attrs: {
+      "href": "/app#/register"
+    }
+  }, [_vm._v("\n\t        Register\n\t    ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "hero is-medium is-primary is-bold"
+  }, [_c('div', {
+    staticClass: "hero-body has-text-centered"
+  }, [_c('div', {
+    staticClass: "container"
+  }, [_c('h1', {
+    staticClass: "title"
+  }, [_vm._v("\n\t                TrackingApp\n\t            ")]), _vm._v(" "), _c('h2', {
+    staticClass: "subtitle"
+  }, [_vm._v("\n\t                Integrado con Vuejs y bulma\n\t            ")]), _vm._v(" "), _c('p', [_vm._v("La aplicacion que monitorea y notifica si tus envios llegaron a sus destinos!!")])])])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-0612b220", module.exports)
+  }
+}
+
+/***/ }),
+/* 117 */,
+/* 118 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -43572,7 +44433,11 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 111 */
+=======
+/* 119 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -43682,6 +44547,7 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 115 */,
 /* 116 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -43706,6 +44572,15 @@ if (false) {
 
 /***/ }),
 /* 117 */
+=======
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -43867,12 +44742,16 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 118 */,
 /* 119 */,
 /* 120 */,
 /* 121 */,
 /* 122 */,
 /* 123 */
+=======
+/* 127 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -43942,7 +44821,203 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 124 */
+=======
+/* 128 */,
+/* 129 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', {
+    staticClass: "section"
+  }, [_c('div', {
+    staticClass: "container has-text-centered"
+  }, [_c('div', {
+    staticClass: "columns"
+  }, [_c('div', {
+    staticClass: "column is-one-third is-offset-one-third"
+  }, [_c('div', {
+    staticClass: "heading"
+  }, [_c('h1', {
+    staticClass: "title"
+  }, [_vm._v("Register")]), _vm._v(" "), _c('h2', {
+    staticClass: "subtitle"
+  }, [_vm._v("Ingrese sus datos")]), _vm._v(" "), _c('div', {
+    staticClass: "column is-half is-offset-one-quarter"
+  }, [_c('form', [_c('label', {
+    staticClass: "label"
+  }, [_vm._v("Name")]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.data.name),
+      expression: "data.name"
+    }],
+    staticClass: "input",
+    class: {
+      'is-danger': _vm.hasErrors('name')
+    },
+    attrs: {
+      "type": "text",
+      "id": "name"
+    },
+    domProps: {
+      "value": _vm._s(_vm.data.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.data.name = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.hasErrors('name')) ? _c('span', {
+    staticClass: "help is-danger"
+  }, [_vm._v("\n                                    " + _vm._s(_vm.error.name[0]) + "\n                                ")]) : _vm._e()]), _vm._v(" "), _c('label', {
+    staticClass: "label"
+  }, [_vm._v("Email Address")]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.data.email),
+      expression: "data.email"
+    }],
+    staticClass: "input",
+    class: {
+      'is-danger': _vm.hasErrors('email')
+    },
+    attrs: {
+      "type": "email",
+      "id": "email"
+    },
+    domProps: {
+      "value": _vm._s(_vm.data.email)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.data.email = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.hasErrors('email')) ? _c('span', {
+    staticClass: "help is-danger"
+  }, [_vm._v("\n                                    " + _vm._s(_vm.error.email[0]) + "\n                                ")]) : _vm._e()]), _vm._v(" "), _c('label', {
+    staticClass: "label"
+  }, [_vm._v("Rut")]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('input', {
+    directives: [{
+      name: "rut",
+      rawName: "v-rut"
+    }, {
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.data.rut),
+      expression: "data.rut"
+    }],
+    staticClass: "input",
+    class: {
+      'is-danger': _vm.hasErrors('rut')
+    },
+    attrs: {
+      "type": "text",
+      "id": "rut"
+    },
+    domProps: {
+      "value": _vm._s(_vm.data.rut)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.data.rut = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.hasErrors('rut')) ? _c('span', {
+    staticClass: "help is-danger"
+  }, [_vm._v("\n                                    " + _vm._s(_vm.error.rut[0]) + "\n                                ")]) : _vm._e()]), _vm._v(" "), _c('label', {
+    staticClass: "label"
+  }, [_vm._v("Password")]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.data.password),
+      expression: "data.password"
+    }],
+    staticClass: "input",
+    class: {
+      'is-danger': _vm.hasErrors('password')
+    },
+    attrs: {
+      "type": "password",
+      "id": "password"
+    },
+    domProps: {
+      "value": _vm._s(_vm.data.password)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.data.password = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.hasErrors('password')) ? _c('span', {
+    staticClass: "help is-danger"
+  }, [_vm._v("\n                                    " + _vm._s(_vm.error.password[0]) + "\n                                ")]) : _vm._e()]), _vm._v(" "), _c('label', {
+    staticClass: "label"
+  }, [_vm._v("Confirm Password")]), _vm._v(" "), _c('p', {
+    staticClass: "control"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.data.password_confirmation),
+      expression: "data.password_confirmation"
+    }],
+    staticClass: "input",
+    class: {
+      'is-danger': _vm.hasErrors('password_confirmation')
+    },
+    attrs: {
+      "type": "password",
+      "id": "password_confirmation"
+    },
+    domProps: {
+      "value": _vm._s(_vm.data.password_confirmation)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.data.password_confirmation = $event.target.value
+      }
+    }
+  }), _vm._v(" "), (_vm.hasErrors('password_confirmation')) ? _c('span', {
+    staticClass: "help is-danger"
+  }, [_vm._v("\n                                    " + _vm._s(_vm.error.password_confirmation[0]) + "\n                                ")]) : _vm._e()]), _vm._v(" "), _c('br'), _vm._v(" "), _c('button', {
+    staticClass: "button is-primary",
+    on: {
+      "click": function($event) {
+        _vm.submit()
+      }
+    }
+  }, [_vm._v("\n                                Enviar\n                            ")])])])])])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-56d5ee12", module.exports)
+  }
+}
+
+/***/ }),
+/* 130 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -44054,11 +45129,15 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 125 */,
 /* 126 */,
 /* 127 */,
 /* 128 */,
 /* 129 */
+=======
+/* 131 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -44098,8 +45177,11 @@ if (false) {
 }
 
 /***/ }),
+<<<<<<< HEAD
 /* 130 */,
 /* 131 */,
+=======
+>>>>>>> master
 /* 132 */,
 /* 133 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -44135,8 +45217,17 @@ function devtoolPlugin (store) {
   })
 }
 
+<<<<<<< HEAD
 function applyMixin (Vue) {
   var version = Number(Vue.version.split('.')[0])
+=======
+/***/ }),
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+>>>>>>> master
 
   if (version >= 2) {
     var usesInit = Vue.config._lifecycleHooks.indexOf('init') > -1
@@ -44867,8 +45958,14 @@ return index;
 })));
 
 /***/ }),
+<<<<<<< HEAD
 /* 134 */,
 /* 135 */
+=======
+/* 138 */,
+/* 139 */,
+/* 140 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(62);
