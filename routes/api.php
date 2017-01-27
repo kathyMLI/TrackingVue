@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => ['auth:api', 'admin'], 'namespace' => 'Api'], function () {
     Route::resources(['users' => 'UsersController']);
     Route::resources(['roles' => 'RolesController']);
-    Route::get('trackings', 'TrackingsController@index');
+    Route::get('trackings', 'TrackingsController@all');
     Route::get('permissions', 'PermissionsController@index');
 });
 Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {

@@ -10,8 +10,11 @@ export default {
         }
         return query;
     },
-    getResource(userId, params) {
-        return axios.get('/api/users/' + userId + '/trackings' + this.buildQueryParams(params));
+    filterResources(userId, params) {
+        return axios.get('/api/users/' + userId + '/trackings/' + this.buildQueryParams(params));
+    },
+    getResource(userId) {
+        return axios.get('/api/users/' + userId + '/trackings');
     },
     createResource(userId, data) {
         return axios.post('/api/users/' + userId + '/trackings', data);

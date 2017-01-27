@@ -12,9 +12,9 @@ use App\Http\Controllers\ApiController;
 
 class TrackingsController extends ApiController
 {
-    public function index(TrackingFilter $filter)
+    public function index(TrackingFilter $filter, User $user)
     {
-        return Tracking::with('users')->filter($filter)->paginate();
+        return $user->trackings()->filter($filter)->paginate();
     }
 
     public function store(Request $request, User $user)
@@ -69,5 +69,9 @@ class TrackingsController extends ApiController
         }
         
         return $this->respondDestroy();
+    }
+
+    public function all(TrackingFilter $filter) {
+        return Tracking::with('users')->filter($filter)->paginate();
     }
 }

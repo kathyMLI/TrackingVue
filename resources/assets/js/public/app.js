@@ -1,13 +1,16 @@
 import './bootstrap';
 
+import Vuex from 'vuex'
+
 import auth from './helpers/auth'
-import axios from 'axios'
+
 import router from './routes'
 import VueRouter from 'vue-router'
 import Multiselect from 'vue-multiselect'
 import VueProgressBar from 'vue-progressbar'
 import VueRut from 'vue-rut'
 
+Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(VueRut);
 Vue.use(VueProgressBar, {
@@ -35,6 +38,18 @@ window.Event = new class {
 	}
 }
 
+const store = new Vuex.Store({
+	state: {
+		me: {}
+	},
+	mutations: {
+		setState (state, value) {
+			state.me = value;
+		}
+	}
+});
+
 const app = new Vue({
-    router
+    router,
+    store
 }).$mount('#app');

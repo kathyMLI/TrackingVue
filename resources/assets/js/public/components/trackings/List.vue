@@ -32,7 +32,7 @@
                                         <td><p class="control"><input v-model="search.delivered" v-on:blur="filter" type="text" class="input" placeholder="Estado"></p></td>
                                         <td></td>
                                     </tr>
-                                    <tr v-for="(track, index) in me.trackings">
+                                    <tr v-for="(track, index) in data.data">
                                         <td>{{ track.code }}</td>
                                         <td>{{ setString(track.pivot.description) }}</td>
                                         <td>{{ track.delivered}}</td>
@@ -85,7 +85,6 @@
                     description: '',
                     delivered: ''
                 },
-                me: {},
                 modal: {
                     show: false,
                     data: {
@@ -97,7 +96,14 @@
             }
         },
         beforeMount() {
-            Event.listen('me', (msg) => { this.me = msg});
+            trackingService.getResource(this.$store.state.me.id, '')
+                .then((data) => {
+                    console.log('data', data.data);
+                    this.data.data = data.data.data;
+                    this.data.totalItems = data.data.total;
+                    this.data.itemsPerPage = data.data.per_page;
+                    this.data.currentPage = data.data.current_page;
+                })
         },
         methods: {
             filter() {
@@ -107,7 +113,7 @@
                     description: this.search.email,
                     delivered: this.search.roles
                 }});
-                resources.filterResources(this.resource, router.currentRoute.query)
+                trackingService.filterResources(this.$store.state.me.id, router.currentRoute.query)
                     .then((data) => {
                         this.data.data = data.data.data;
                         this.data.totalItems = data.data.total;

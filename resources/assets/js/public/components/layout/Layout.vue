@@ -54,8 +54,9 @@
             auth.setAuthHeader(localStorage.getItem('token'));
             resources.me()
                 .then(({data}) => {
-                    this.me = data;
-                    Event.fire('me', this.me);
+                    //this.me = data;
+                    //Event.fire('me', this.me);
+                    this.$store.commit('setState', data);
                 });
         },
         computed: {
