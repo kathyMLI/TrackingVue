@@ -8,20 +8,32 @@ function authentication(to, from,next) {
     }
 }
 
+function isLogged(to, from,next) {
+    if(localStorage.getItem('token') === null) {
+        next();
+    } else {
+        next('/home');
+    }
+}
+
 const routes = [
     {
         path: '/login',
         name: 'login',
-        component: require('./components/auth/Login.vue')
+        component: require('./components/auth/Login.vue'),
+        beforeEnter: isLogged
+
     },
     {
         path: '/register',
         name: 'register',
-        component: require('./components/auth/Register.vue')
+        component: require('./components/auth/Register.vue'),
+        beforeEnter: isLogged
     },
     {
         path: '/',
-        component: require('./components/layout/Index.vue')
+        component: require('./components/layout/Index.vue'),
+        beforeEnter: isLogged
     },
     {
         path: '/home',
