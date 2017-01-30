@@ -144,7 +144,6 @@
                     this.data.totalItems = data.data.total;
                     this.data.itemsPerPage = data.data.per_page;
                     this.data.currentPage = data.data.current_page;
-                    console.log(this.data.data);
                 })
         },
         methods: {

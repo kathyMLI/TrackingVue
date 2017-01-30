@@ -55,6 +55,17 @@ const routes = [
                 component: require('./components/app/Dashboard.vue')
             },
             {
+                path: '/account',
+                component: {template: '<router-view></router-view>'},
+                children: [
+                    {
+                        path: 'settings',
+                        name: 'accountSettings',
+                        component: require('./components/user/Settings.vue')
+                    }
+                ]
+            },
+            {
                 path: '/trackings',
                 component: {template: '<router-view></router-view>'},
                 children: [

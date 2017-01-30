@@ -1,11 +1,12 @@
 <template>
-    <section class="section">
+    <div>
         <div class="container has-text-centered">
             <div class="columns">
                 <div class="column is-one-third is-offset-one-third">
                     <div class="heading">
                         <h1 class="title">Registro</h1>
                         <h2 class="subtitle">Ingrese sus datos</h2>
+                        <hr>
                     </div>
                     <div>
                         <form>
@@ -45,15 +46,15 @@
                                 </span>
                             </p>
                             <br>
-                            <button class="button is-primary" @click="submit()">
-                                Enviar
+                            <button class="button is-primary is-inverted" @click="submit()">
+                                Registrarse
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>

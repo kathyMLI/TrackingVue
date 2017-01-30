@@ -4,15 +4,12 @@
             <heroMenu @logOut="logOut"></heroMenu>
         </div>
         <div class="container">
-            <!-- <div class="notifications">
-                <notifications :show="notificationsMenu" @close='notificationsMenu = false' :news="me.notifications" :algo="algo"></notifications>
-            </div> -->
             <div class="content column">
-                <div class="section">
+                <section class="section">
                     <div class="container">
                         <router-view></router-view>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
         <vue-progress-bar></vue-progress-bar>

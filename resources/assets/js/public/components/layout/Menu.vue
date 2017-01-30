@@ -12,6 +12,7 @@
                         <div class="nav-right nav-menu">
                             <router-link :to="{ name: 'home' }" class="nav-item">Home</router-link>
                             <router-link :to="{ name: 'trackings' }" class="nav-item">Administracion</router-link>
+                            <router-link :to="{ name: 'accountSettings' }" class="nav-item">Cuenta</router-link>
                             <a class="nav-item" @click="logOut()">Salir</a>
                         </div> 
                     </div>
@@ -27,7 +28,7 @@
                     </h2>
                 </div>
             </div>
-            <div class="hero-foot" v-if="state != 'home'">
+            <div class="hero-foot" v-if="showFoot">
                 <nav class="tabs is-boxed">
                     <div class="container">
                         <ul>
@@ -43,8 +44,11 @@
 <script>
     export default {
         computed: {
-            state: function() {
-                return this.$route.name;
+            showFoot: function() {
+                if(this.$route.name.indexOf('home') != -1 || this.$route.name.indexOf('account') != -1) {
+                    return false;
+                }
+                return true;
             }
         },
         methods: {

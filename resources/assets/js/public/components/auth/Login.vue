@@ -1,19 +1,20 @@
 <template>
-    <section class="section">
+    <div>
         <div class="container has-text-centered">
             <div class="columns">
                 <div class="column is-one-third is-offset-one-third">
                     <div class="heading">
                         <h1 class="title">Entrar</h1>
                         <h2 class="subtitle">Ingrese sus datos</h2>
+                        <hr>
                     </div>
                     <div>
-                        <label class="label">Email</label>
+                        <label class="label">Correo</label>
                         <p class="control">
                             <input class="input" type="email" placeholder="Email" v-model="credentials.email" v-bind:class="{ 'is-danger': hasErrors('email') }">
                             <span class="help is-danger" v-if="hasErrors('email')">{{ error.email[0] }}</span>
                         </p>
-                        <label class="label">Password</label>
+                        <label class="label">Contraseña</label>
                         <p class="control">
                             <input class="input" type="password" placeholder="Password" v-model="credentials.password" v-bind:class="{ 'is-danger': hasErrors('password') }">
                             <span class="help is-danger" v-if="hasErrors('password')">{{ error.password[0] }}</span>
@@ -25,14 +26,15 @@
                             </label>
                         </p>
                         <div class="control is-grouped">
-                        <p class="control">
-                            <button class="button is-primary" @click="submit()">Entrar</button>
-                        </p>
+                            <p class="control">
+                                <button class="button is-primary is-inverted" @click="submit()">Entrar</button>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
