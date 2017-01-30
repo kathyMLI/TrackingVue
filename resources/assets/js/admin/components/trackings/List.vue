@@ -58,6 +58,72 @@
                             </div>
                         </div>
                     </div>
+                    <div class="modal" v-bind:class="{ 'is-active': modal.show }">
+                            <div class="modal-background"></div>
+                            <div class="modal-card">
+                                <header class="modal-card-head">
+                                    <p class="modal-card-title">Codigo: {{ modal.data.code }}</p>
+                                    <button class="delete" @click="modal.show = false, modal.current = 'users'"></button>
+                                </header>
+                                <section class="modal-card-body">
+                                    <div class="tabs is-centered">
+                                        <ul>
+                                            <li @click="modal.current = 'users'" v-bind:class="{ 'is-active': modal.current == 'users'}">
+                                                <a>Usuarios</a>
+                                            </li>
+                                            <li @click="modal.current = 'history'" v-bind:class="{ 'is-active': modal.current == 'history'}">
+                                                <a>Historial</a>
+                                            </li>
+                                            <li @click="modal.current = 'delivered'" v-bind:class="{ 'is-active': modal.current == 'delivered'}" v-if="modal.data.delivered == 'Entregado'">
+                                                <a>Entrega</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="modalDescription" v-if="modal.current == 'users'">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Correo</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="user in modal.data.users">
+                                                    <th>{{ user.name }}</th>
+                                                    <th>{{ user.email }}</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modalHistory" v-if="modal.current == 'history'">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Oficina</th>
+                                                    <th>Estado</th>
+                                                    <th>Fecha</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="ar in modal.data.history">
+                                                    <th>{{ ar.sendingOffice }}</th>
+                                                    <th>{{ ar.sendingStatus }}</th>
+                                                    <th>{{ ar.sendingDate }}</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modalDelivered" v-if="modal.current == 'delivered'">
+                                        <b>Entregado a:</b> {{ modal.data.data.delivery_table.deliveredTo }}
+                                        <br>
+                                        <b>Rut:</b> {{ modal.data.data.delivery_table.deliveredToRut }}
+                                        <br>
+                                        <b>Fecha:</b> {{ modal.data.data.delivery_table.deliveredDate }}
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
                 </article>
             </div>
         </div>
@@ -85,7 +151,9 @@
                 },
                 modal: {
                     show: false,
+                    current: 'users',
                     data: {
+                        delivered: '',
                         pivot: {
                             description: ''
                         }

@@ -18,10 +18,7 @@
     "vue-multiselect": "2.0.0-beta.13",
     "vue-progressbar": "^0.7.0",
     "vue-router": "^2.1.1",
-    "vue-rut": "^2.0.0",
-    "vuex": "^2.1.1"
+    "vue-rut": "^2.0.0"
   },
-  "dependencies": {
-    "vue-blu": "^0.1.8"
-  }
+  "dependencies": {}
 }

@@ -31,6 +31,16 @@ class Tracking extends Model
         ];
     }
 
+    public function getDataAttribute()
+    {
+        return json_decode($this->attributes["data"]);
+    }
+
+    public function getHistoryAttribute()
+    {
+        return json_decode($this->attributes["history"]);
+    }
+
     public function getDeliveredAttribute()
     {
         return $this->attributes["delivered"] ? "Entregado" :  "En camino";

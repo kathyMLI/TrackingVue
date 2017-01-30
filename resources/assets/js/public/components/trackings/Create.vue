@@ -14,6 +14,7 @@
         },
         methods: {
             create(tracking) {
+                console.log(tracking);
                 resources.createResource(this.resource, tracking)
                     .then((data) => {
                         console.log('creado');

@@ -4,7 +4,7 @@
             <div class="columns">
                 <div class="column is-one-third is-offset-one-third">
                     <div class="heading">
-                        <h1 class="title">Login</h1>
+                        <h1 class="title">Entrar</h1>
                         <h2 class="subtitle">Ingrese sus datos</h2>
                     </div>
                     <div>

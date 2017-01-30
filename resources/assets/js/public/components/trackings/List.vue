@@ -52,11 +52,51 @@
                             <div class="modal-background"></div>
                             <div class="modal-card">
                                 <header class="modal-card-head">
-                                    <p class="modal-card-title">{{ modal.data.code }}</p>
-                                    <button class="delete" @click="modal.show = false"></button>
+                                    <p class="modal-card-title">Codigo: {{ modal.data.code }}</p>
+                                    <button class="delete" @click="modal.show = false, modal.current = 'description'"></button>
                                 </header>
                                 <section class="modal-card-body">
-                                    {{ modal.data.pivot.description }}
+                                    <div class="tabs is-centered">
+                                        <ul>
+                                            <li @click="modal.current = 'description'" v-bind:class="{ 'is-active': modal.current == 'description'}">
+                                                <a>Descripcion</a>
+                                            </li>
+                                            <li @click="modal.current = 'history'" v-bind:class="{ 'is-active': modal.current == 'history'}">
+                                                <a>Historial</a>
+                                            </li>
+                                            <li @click="modal.current = 'delivered'" v-bind:class="{ 'is-active': modal.current == 'delivered'}" v-if="modal.data.delivered == 'Entregado'">
+                                                <a>Entrega</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="modalDescription" v-if="modal.current == 'description'">
+                                        {{ modal.data.pivot. description }}
+                                    </div>
+                                    <div class="modalHistory" v-if="modal.current == 'history'">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Oficina</th>
+                                                    <th>Estado</th>
+                                                    <th>Fecha</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="ar in modal.data.history">
+                                                    <th>{{ ar.sendingOffice }}</th>
+                                                    <th>{{ ar.sendingStatus }}</th>
+                                                    <th>{{ ar.sendingDate }}</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modalDelivered" v-if="modal.current == 'delivered'">
+                                        <b>Entregado a:</b> {{ modal.data.data.delivery_table.deliveredTo }}
+                                        <br>
+                                        <b>Rut:</b> {{ modal.data.data.delivery_table.deliveredToRut }}
+                                        <br>
+                                        <b>Fecha:</b> {{ modal.data.data.delivery_table.deliveredDate }}
+                                    </div>
                                 </section>
                             </div>
                         </div>
@@ -87,7 +127,9 @@
                 },
                 modal: {
                     show: false,
+                    current: 'description',
                     data: {
+                        delivered: '',
                         pivot: {
                             description: ''
                         }
@@ -102,6 +144,7 @@
                     this.data.totalItems = data.data.total;
                     this.data.itemsPerPage = data.data.per_page;
                     this.data.currentPage = data.data.current_page;
+                    console.log(this.data.data);
                 })
         },
         methods: {
@@ -122,11 +165,12 @@
                     });
             },
             setString(msg) {
-                return msg.substr(27) + '...';
+                return msg.substr(0, 27) + '...';
             },
             setModal(tracking) {
                 this.modal.data = tracking;
                 this.modal.show = true;
+                console.log(tracking);
             }
         }
     }

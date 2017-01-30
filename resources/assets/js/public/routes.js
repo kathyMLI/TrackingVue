@@ -8,7 +8,7 @@ function authentication(to, from,next) {
     }
 }
 
-function isLogged(to, from,next) {
+function isNotLogged(to, from,next) {
     if(localStorage.getItem('token') === null) {
         next();
     } else {
@@ -18,22 +18,26 @@ function isLogged(to, from,next) {
 
 const routes = [
     {
-        path: '/login',
-        name: 'login',
-        component: require('./components/auth/Login.vue'),
-        beforeEnter: isLogged
-
-    },
-    {
-        path: '/register',
-        name: 'register',
-        component: require('./components/auth/Register.vue'),
-        beforeEnter: isLogged
-    },
-    {
         path: '/',
-        component: require('./components/layout/Index.vue'),
-        beforeEnter: isLogged
+        component: require('./components/layout/UnRegister.vue'),
+        beforeEnter: isNotLogged,
+        children: [
+            {
+                path: '',
+                name: 'index',
+                component: require('./components/layout/Index.vue')
+            },
+            {
+                path: '/login',
+                name: 'login',
+                component: require('./components/auth/Login.vue')
+            },
+            {
+                path: '/register',
+                name: 'register',
+                component: require('./components/auth/Register.vue')
+            }
+        ]
     },
     {
         path: '/home',
