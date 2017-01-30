@@ -21,11 +21,22 @@ const routes = [
         path: '/',
         component: require('./components/layout/UnRegister.vue'),
         beforeEnter: isNotLogged,
+        redirect: { name: 'index'},
         children: [
             {
-                path: '',
+                path: 'index',
                 name: 'index',
-                component: require('./components/layout/Index.vue')
+                component: require('./components/index/Index.vue')
+            },
+            {
+                path: 'about',
+                name: 'about',
+                component: require('./components/index/About.vue')
+            },
+            {
+                path: 'aboutUs',
+                name: 'aboutUs',
+                component: require('./components/index/AboutUs.vue')
             },
             {
                 path: '/login',
