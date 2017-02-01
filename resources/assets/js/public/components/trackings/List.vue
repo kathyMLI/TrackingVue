@@ -111,6 +111,7 @@
     import resources from '../../services/resources'
     import router from '../../routes'
     import list from '../../mixins/list'
+    import confirm from '../../helpers/confirm'
     export default {
         mixins: [list],
         data() {
@@ -135,7 +136,8 @@
                             description: ''
                         }
                     }
-                }
+                },
+                resource: 'trackings'
             }
         },
         beforeMount() {
@@ -151,11 +153,10 @@
             filter() {
                 router.replace({query: {
                     page: this.search.page,
-                    code: this.search.name,
-                    description: this.search.email,
-                    delivered: this.search.roles
+                    code: this.search.code,
+                    description: this.search.description,
+                    delivered: this.search.delivered
                 }});
-                console.log('camibo');
                 resources.filterTrackings(router.currentRoute.query)
                     .then((data) => {
                         this.data.data = data.data.data;
@@ -170,7 +171,22 @@
             setModal(tracking) {
                 this.modal.data = tracking;
                 this.modal.show = true;
-                console.log(tracking);
+            },
+            delete(id, index) {
+                resources.deleteResource(this.resource , id)
+                    .then((data) => {
+                        console.log('Eliminado');
+                        this.removeFromData(index);
+                    })
+                    .catch((data) => {
+                        console.log('Error!', data)
+                    })
+            },
+            destroy(id, index) {
+                confirm.destroy(id, index, this.delete);
+            },
+            removeFromData(index) {
+                this.data.data.splice(index, 1);
             }
         }
     }
