@@ -147,7 +147,8 @@
                 search: {
                     code: '',
                     description: '',
-                    delivered: ''
+                    delivered: '',
+                    page: ''
                 },
                 modal: {
                     show: false,
@@ -166,9 +167,9 @@
             filter() {
                 router.replace({query: {
                     page: this.search.page,
-                    code: this.search.name,
-                    description: this.search.email,
-                    delivered: this.search.roles
+                    code: this.search.code,
+                    description: this.search.description,
+                    delivered: this.search.delivered
                 }});
                 console.log('camibo');
                 resources.filterResources(this.resource, router.currentRoute.query)
