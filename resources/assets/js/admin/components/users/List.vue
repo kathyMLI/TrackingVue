@@ -30,7 +30,7 @@
                                     <tr>
                                         <td><p class="control"><input v-model="search.name" v-on:blur="filter" type="text" class="input" placeholder="nombre"></p></td>
                                         <td><p class="control"><input v-model="search.email" v-on:blur="filter" type="text" class="input" placeholder="email"></p></td>
-                                        <td><p class="control"><input v-rut v-model="search.rut" v-on:blur="filter" type="text" class="input" placeholder="rut"></p></td>
+                                        <td><p class="control"><input v-rut v-model="auxRut" v-on:blur="filter" type="text" class="input" placeholder="rut"></p></td>
                                         <td><p class="control"><input v-model="search.roles" v-on:blur="filter" type="text" class="input" placeholder="rol"></p></td>
                                         <td></td>
                                     </tr>
@@ -82,11 +82,14 @@
                     roles: '',
                     page: ''
                 },
+                auxRut: '',
                 resource: 'users'
             }
         },
         methods: {
             filter() {
+                this.search.rut = this.auxRut;
+
                 router.replace({query: {
                     page: this.search.page,
                     name: this.search.name,

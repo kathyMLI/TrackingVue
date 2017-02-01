@@ -26,7 +26,7 @@
                             </p>
                             <label class="label">Rut</label>
                             <p class="control">
-                                <input type="text" id="rut" v-rut v-model="data.rut" class="input" v-bind:class="{ 'is-danger': hasErrors('rut')}">
+                                <input type="text" id="rut" v-rut v-model="auxRut" class="input" v-bind:class="{ 'is-danger': hasErrors('rut')}">
                                 <span v-if="hasErrors('rut')" class="help is-danger">
                                     {{ error.rut[0] }}
                                 </span>
@@ -63,20 +63,6 @@
     import register from '../../services/auth'
 
     export default {
-        props: {
-            defaultName: {
-                type: String,
-                required: false
-            },
-            defaultEmail: {
-                type: String,
-                required: false
-            },
-            defaultRut: {
-                type: String,
-                required: false
-            }
-        },
         data() {
             return {
                 data: {
@@ -86,19 +72,9 @@
                     password: '',
                     password_confirmation: ''
                 },
+                auxRut:'',
                 error: '',
                 roles: ['user']
-            }
-        },
-        beforeMount(){
-            if (this.defaultName != null) {
-                this.data.name = this.defaultName
-            }
-            if (this.defaultEmail != null) {
-                this.data.email = this.defaultEmail
-            }
-            if (this.defaultRut != null) {
-                this.data.rut = this.defaultRut
             }
         },
         mounted() {
@@ -111,6 +87,8 @@
         },
         methods: {
             submit() {
+                this.data.rut = this.auxRut;
+
                 register.register(this.data)
                     .then((data) => {
                         router.push({ name: 'home'});
