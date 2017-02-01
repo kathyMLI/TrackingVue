@@ -11,8 +11,8 @@ class TrackingDeleteNotification extends Notification
 {
     use Queueable;
 
-    protected $code
-    protected $name
+    protected $code;
+    protected $name;
 
     /**
      * Create a new notification instance.

@@ -82,8 +82,8 @@ class TrackingsController extends ApiController
         $request
             ->user()
             ->notify(new TrackingDeleteNotification(
-                $request->user->name,
-                $tracking->code
+                $tracking->code,
+                $request->user()->name
                 ));
         
         return $this->respondDestroy();
