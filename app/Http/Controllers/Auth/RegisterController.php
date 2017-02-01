@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use App\Notifications\WelcomeNotification;
+use App\Notifications\UserWelcomeNotification;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -42,7 +42,7 @@ class RegisterController extends Controller
             'password' => $data['password'],
             'api_token' => str_random(60),
         ]);
-        // $user->notify(new WelcomeNotification);
+        $user->notify(new UserWelcomeNotification($user->name));
         return $user;
     }
 }
