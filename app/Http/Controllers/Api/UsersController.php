@@ -38,7 +38,7 @@ class UsersController extends ApiController
         ]);
 
         $user = User::create($request->all())->syncRoles($request->roles);
-        $user->notify(new UserWelcomeNotification($user->name));
+        $user->notify(new UserWelcomeNotification($user));
         return $this->respondStore();
     }
 

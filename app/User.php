@@ -21,6 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'api_token',
+        'validation_token',
         'rut'
     ];
 

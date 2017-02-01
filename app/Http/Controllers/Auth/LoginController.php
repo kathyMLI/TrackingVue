@@ -25,8 +25,11 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
         if (Auth::once($request->except('_token'))) {
-            Auth::user()->updateToken()->save();
-            return response()->json(['token' => Auth::user()->api_token]);
+            if(Auth::user()->validation_token == null) {
+                Auth::user()->updateToken()->save();
+                return response()->json(['token' => Auth::user()->api_token]);
+            }
+            return response()->json(['email' => ['Email no validado']], 422);
         }
         return response()->json(['email' => ['Credenciales no validas']], 422);
     }

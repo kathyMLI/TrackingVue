@@ -11,16 +11,16 @@ class UserWelcomeNotification extends Notification
 {
     use Queueable;
 
-    protected $user = '';
+    protected $user = '', $name = '', $token= '';
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($userName)
+    public function __construct($user)
     {
-        $this->user = $userName;
+        $this->user = $user;
     }
 
     /**
@@ -42,8 +42,8 @@ class UserWelcomeNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        $user = $this->user;
-        $url = url('/app#');
+        $user = $this->user->name;
+        $url = url('/app#/validate/'.$this->user->id.'?validation_token='.$this->user->validation_token);
         return (new MailMessage)
             ->subject('Bienvenido')
             ->markdown('mail.user.welcome', compact('user', 'url'));
