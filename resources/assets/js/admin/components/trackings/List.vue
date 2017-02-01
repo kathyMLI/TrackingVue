@@ -171,7 +171,6 @@
                     description: this.search.description,
                     delivered: this.search.delivered
                 }});
-                console.log('camibo');
                 resources.filterResources(this.resource, router.currentRoute.query)
                     .then((data) => {
                         this.data.data = data.data.data;

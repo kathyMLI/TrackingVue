@@ -170,7 +170,6 @@
             setModal(tracking) {
                 this.modal.data = tracking;
                 this.modal.show = true;
-                console.log(tracking);
             },
             delete(id, index) {
                 resources.deleteResource(this.resource , id)
