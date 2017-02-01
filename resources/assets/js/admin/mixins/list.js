@@ -10,7 +10,7 @@ export default {
                 this.data.currentPage = data.data.current_page;
                 console.log('papapap', this.data.data);
             });
-    },
+    },this
     methods: {
         delete(id, index) {
             resources.deleteResource(this.resource , id)

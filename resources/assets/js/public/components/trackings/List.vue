@@ -112,6 +112,7 @@
     import router from '../../routes'
     import list from '../../mixins/list'
     export default {
+        mixins: [list],
         data() {
             return {
                 data: {

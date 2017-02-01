@@ -16,7 +16,7 @@ class Tracking extends Model
 
     public static function getByCode($code)
     {
-        return Tracking::where('code', '=', $code)->get();
+        return self::where('code', '=', $code)->get();
     }
 
     public static function getData($code)

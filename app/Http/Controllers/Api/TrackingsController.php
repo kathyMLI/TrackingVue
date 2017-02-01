@@ -9,6 +9,10 @@ use App\Tracking;
 use App\Filters\TrackingFilter;
 use App\Http\Requests;
 use App\Http\Controllers\ApiController;
+use App\Notifications\TrackingCreateNotification;
+// use App\Notifications\TrackingUpdateNotification;
+// use App\Notifications\TrackingDeliveredNotification;
+use App\Notifications\TrackingDeleteNotification;
 
 class TrackingsController extends ApiController
 {
@@ -36,6 +40,14 @@ class TrackingsController extends ApiController
                 ['description' => $request->description]
             );
 
+
+            $request
+                ->user()
+                ->notify(new TrackingCreateNotification(
+                    $request->user()->name,
+                    $request->code,
+                    $request->description
+                    ));
             return $this->respondStore();
         }
 
@@ -57,7 +69,6 @@ class TrackingsController extends ApiController
             $tracking->id,
             ['description' => $request->description]
         );
-
         return $this->respondUpdate();
     }
 
@@ -67,6 +78,13 @@ class TrackingsController extends ApiController
         if (User::hasTrackingCode($tracking->code)) {
             Tracking::destroy($tracking->id);
         }
+
+        $request
+            ->user()
+            ->notify(new TrackingDeleteNotification(
+                $request->user->name,
+                $tracking->code
+                ));
         
         return $this->respondDestroy();
     }
