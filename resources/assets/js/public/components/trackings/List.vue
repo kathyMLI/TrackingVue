@@ -113,7 +113,6 @@
     import list from '../../mixins/list'
     import confirm from '../../helpers/confirm'
     export default {
-        mixins: [list],
         data() {
             return {
                 data: {

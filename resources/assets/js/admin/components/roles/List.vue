@@ -84,7 +84,7 @@
         methods: {
             filter() {
                 router.replace({query: {
-                    page: this.roles.currentPage,
+                    page: this.data.currentPage,
                     name: this.search.name,
                     label: this.search.label,
                     permissions: this.search.permissions
