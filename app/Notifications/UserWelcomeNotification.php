@@ -45,6 +45,7 @@ class UserWelcomeNotification extends Notification
         $user = $this->user;
         $url = url('/app#');
         return (new MailMessage)
+            ->subject('Bienvenido')
             ->markdown('mail.user.welcome', compact('user', 'url'));
     }
 

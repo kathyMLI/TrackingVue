@@ -7,22 +7,20 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class TrackingDeleteNotification extends Notification
+class UserDeleteNotification extends Notification
 {
     use Queueable;
 
-    protected $code;
-    protected $name;
+    protected $user = '';
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($trackingCode, $userName)
+    public function __construct($userName)
     {
-        $this->code = $trackingCode;
-        $this->name = $userName;
+        $this->user = $userName;
     }
 
     /**
@@ -44,12 +42,12 @@ class TrackingDeleteNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        $code = $this->code;
-        $name = $this->name;
+        $user = $this->user;
+        $url = url('/app#');
 
         return (new MailMessage)
-            ->subject('Tracking eliminado')
-            ->markdown('mail.tracking.delete', compact('code', 'name'));
+            ->subject('Usuario eliminado')
+            ->markdown('mail.user.delete', compact('user', 'url'));
     }
 
     /**

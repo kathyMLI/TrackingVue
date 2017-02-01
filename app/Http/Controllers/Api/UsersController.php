@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Notifications\UserWelcomeNotification;
+use App\Notifications\UserDeleteNotification;
 use App\Filters\UserFilter;
 use App\Http\Requests;
 use App\Http\Controllers\ApiController;
@@ -59,6 +60,7 @@ class UsersController extends ApiController
 
     public function destroy(User $user)
     {
+        $user->notify(new UserDeleteNotification($user->name));
         $user->delete();
         return $this->respondDestroy();
     }
