@@ -7,18 +7,20 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class WelcomeNotification extends Notification
+class UserWelcomeNotification extends Notification
 {
     use Queueable;
+
+    protected $user = '';
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($userName)
     {
-        //
+        $this->user = $userName;
     }
 
     /**
@@ -40,10 +42,10 @@ class WelcomeNotification extends Notification
      */
     public function toMail($notifiable)
     {
+        $user = $this->user;
+        $url = url('/app#');
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->markdown('mail.user.welcome', compact('user', 'url'));
     }
 
     /**

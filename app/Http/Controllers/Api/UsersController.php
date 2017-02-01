@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 
 use App\User;
-use App\Notifications\WelcomeNotification;
+use App\Notifications\UserWelcomeNotification;
 use App\Filters\UserFilter;
 use App\Http\Requests;
 use App\Http\Controllers\ApiController;
@@ -37,9 +37,7 @@ class UsersController extends ApiController
         ]);
 
         $user = User::create($request->all())->syncRoles($request->roles);
-
-        $user->notify(new WelcomeNotification);
-
+        $user->notify(new UserWelcomeNotification($user->name));
         return $this->respondStore();
     }
 
@@ -56,14 +54,12 @@ class UsersController extends ApiController
         $user->fill($request->all())->save();
 
         $user->syncRoles($request->roles);
-
         return $this->respondUpdate();
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-
         return $this->respondDestroy();
     }
 }
