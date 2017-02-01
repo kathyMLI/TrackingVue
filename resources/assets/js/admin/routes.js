@@ -90,12 +90,12 @@ const routes = [
                     {
                         path: '',
                         name: 'announcement',
-                        component: require('./components/notifications/List.vue')
+                        component: require('./components/announcements/List.vue')
                     },
                     {
                         path: 'create',
                         name: 'announcementCreate',
-                        component: require('./components/notifications/Create.vue')
+                        component: require('./components/announcements/Create.vue')
                     }
                 ]
             }
