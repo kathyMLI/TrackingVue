@@ -18,8 +18,9 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
+        $user = $this->create($request->all());
         return response()->json([
-            'token' => $this->create($request->all())->api_token
+            'message' => 'Usuario creado con exito'
         ]);
     }
 
@@ -40,9 +41,23 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'rut' => $data['rut'],
             'password' => $data['password'],
-            'api_token' => str_random(60),
+            'validation_token' => str_random(60),
         ]);
-        $user->notify(new UserWelcomeNotification($user->name));
+        $user->notify(new UserWelcomeNotification($user));
         return $user;
+    }
+
+    public function validation(User $user, Request $request)
+    {
+        if($user->validation_token == $request->validation_token) {
+            $user->validation_token = null;
+            $user->save();
+            return response()->json([
+                'state' => true
+            ]);
+        }
+        return response()->json([
+            'state' => false
+        ]);
     }
 }

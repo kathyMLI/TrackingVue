@@ -39,14 +39,19 @@ const routes = [
                 component: require('./components/index/AboutUs.vue')
             },
             {
-                path: '/login',
+                path: 'login',
                 name: 'login',
                 component: require('./components/auth/Login.vue')
             },
             {
-                path: '/register',
+                path: 'register',
                 name: 'register',
                 component: require('./components/auth/Register.vue')
+            },
+            {
+                path: 'validate/:id',
+                name: 'validate',
+                component: require('./components/auth/Validate.vue')
             }
         ]
     },

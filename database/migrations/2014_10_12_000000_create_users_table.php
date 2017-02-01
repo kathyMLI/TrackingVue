@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('api_token', 60)->nullable();
+            $table->string('validation_token', 60)->nullable();
             $table->integer('subscription_id')
                 ->unsigned()
                 ->default(1);

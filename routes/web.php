@@ -24,3 +24,4 @@ Route::get('/admin', function () {
 
 Route::post('register', 'Auth\RegisterController@register');
 Route::post('login', 'Auth\LoginController@login');
+Route::post('validate/{user}', 'Auth\RegisterController@validation');
