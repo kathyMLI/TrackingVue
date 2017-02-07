@@ -1,13 +1,17 @@
 <template>
     <div>
-    	<div class="panel-heading">VueRut directive test</div>
-        <div class="panel-block">
-        	<input v-model="data.rut" v-rut type="text" class="input">
-        	<h4>{{data.rut}}</h4>
-        </div>
-        <div class="panel-heading">VueRut Filter test</div>
-        <div class="panel-block">
-        	<p>{{ data.rutNumber | rut}}</p>
+        <div class="columns container has-text-centered ">
+            <article class="tile is-vertical notification is-primary is-inverted">
+                <div class="content">
+                    <h1 class="title">¿Qué es TrackingApp?</h1>
+                    <div class="column content is-half is-offset-one-quarter">
+                        <p>TrackingApp la manera más fácil de monitorear tus envíos, solo debes ingresar tu código de envío y nuestra aplicación hará el resto.</p>
+
+                        <p>Nosotros te notificaremos mediante el correo que registres cada vez que tu envío cambie de estado. De esta manera no tendrás que preocuparte de revisar tu envío, sabrás al instanse cuando tu envío llege a su destino.</p> 
+                    </div>
+                </div>
+                <h1 class="title"></h1>
+            </article>
         </div>
     </div>
 </template>

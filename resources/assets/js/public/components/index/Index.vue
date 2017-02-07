@@ -7,7 +7,7 @@
             <h2 class="subtitle">
                 Integrado con Vuejs y bulma
             </h2>
-            <p>La aplicacion que monitorea y notifica si tus envios llegaron a sus destinos!!</p>
+            <p>La aplicación que monitorea y notifica si tus envíos llegaron a sus destinos!</p>
         </div>
     </div>
 </template>
