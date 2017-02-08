@@ -11,7 +11,7 @@ class UserWelcomeNotification extends Notification
 {
     use Queueable;
 
-    protected $user = '', $name = '', $token= '';
+    protected $user = '';
 
     /**
      * Create a new notification instance.

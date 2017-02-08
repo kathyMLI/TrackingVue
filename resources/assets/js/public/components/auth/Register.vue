@@ -91,7 +91,8 @@
 
                 register.register(this.data)
                     .then((data) => {
-                        router.push({ name: 'home'});
+                        router.push({ name: 'sendmail'});
+                        console.log('push to sendmail');
                     })
                     .catch((data) => {
                         Event.fire('errorForm', data.response.data);

@@ -52,6 +52,11 @@ const routes = [
                 path: 'validate/:id',
                 name: 'validate',
                 component: require('./components/auth/Validate.vue')
+            },
+            {
+                path: 'sendmail',
+                name: 'sendmail',
+                component: require('./components/auth/SendMail.vue')
             }
         ]
     },

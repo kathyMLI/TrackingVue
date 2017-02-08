@@ -1,16 +1,31 @@
+<style>
+    .hero {
+        background-color: #e0f2f1;
+        color: #004d40;
+    }
+    .hero-head{
+        background-color: #009688;
+        color: #004d40;
+    }
+    ul{
+        background-color: #009688;
+        color: #e0f2f1;
+    }
+</style>
 <template>
-    <section class="hero is-primary is-fullheight">
+    <section class="hero is-fullheight">
         <div class="hero-head">
             <header class="nav">
                 <div class="container">
                     <div class="nav-left">
                         <router-link :to="{ name: 'index' }" class="nav-item">
-                            <img src="img/logo2.png" alt="Aphix">
+                            <img src="img/icon.png" alt="icon">
+                            <img src="img/logo.png" alt="TrackingApp">
                         </router-link>
                     </div>
                     <div class="nav-right nav-menu">
                         <span class="nav-item">
-                            <router-link :to="{ name: 'login' } " class="button is-primary is-inverted" >Entrar</router-link>
+                            <router-link :to="{ name: 'login' } " class="button is-inverted" >Entrar</router-link>
                         </span>
                         <span class="nav-item">
                             <router-link :to="{ name: 'register' }" >Registro</router-link>
@@ -25,7 +40,7 @@
             </div>
         </div>
         <div class="hero-foot">
-            <nav class="tabs is-boxed is-fullwidth">
+            <nav class="tabs is-boxed is-one-third">
                 <div class="container">
                     <ul>
                         <router-link tag="li" :to="{ name: 'index' }"><a>Principal</a></router-link>

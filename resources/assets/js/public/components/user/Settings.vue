@@ -11,8 +11,7 @@
                         <hr>
                         <div class="control is-grouped">
                             <p class="control is-expanded">
-                                <input class="input" type="email" placeholder="Nuevo Nombre" v-bind:class="{ 'is-danger': hasErrors('email') }">
-                                <span class="help is-danger" v-if="hasErrors('email')">{{ error.email[0] }}</span>
+                                <input class="input" type="text" placeholder="Nuevo Nombre" v-model="data.name" >
                             </p>
                             <p class="control">
                                 <button class="button is-primary" @click="submit()">Cambiar</button>
@@ -25,15 +24,15 @@
                         <hr>
                         <label class="label">Contraseña antigua</label>
                         <p class="control">
-                            <input class="input" type="password" placeholder="Password" v-bind:class="{ 'is-danger': hasErrors('password') }">
+                            <input class="input" type="password" placeholder="Contraseña" v-model="data.oldPass" v-bind:class="{ 'is-danger': hasErrors('password') }">
                         </p>
                         <label class="label">Nueva contraseña</label>
                         <p class="control">
-                            <input class="input" type="password" placeholder="Password">
+                            <input class="input" type="password" placeholder="Contraseña" v-model="data.newPass" v-bind:class="{ 'is-danger': hasErrors('password') }">
                         </p>
                         <label class="label">Repita la nueva contraseña</label>
-                        <p class="control">
-                            <input class="input" type="password" placeholder="Password">
+                        <p class="control"v-bind:class="{ 'is-danger': hasErrors('password') }">
+                            <input class="input" type="password" placeholder="Contraseña">
                         </p>
                         <div class="control is-grouped">
                             <p class="control">
@@ -47,15 +46,38 @@
     </div>
 </template>
 <script>
+    import resources from '../../services/resources'
+    import router from '../../routes'
     export default {
         data() {
             return {
+                data: {
+                    passConfirmation: '',
+                    oldPass: '',
+                    newPass: '',
+                    name: ''
+                },
                 error: ''
             }
+        },
+        beforeMount() {
+            resources.getResource('users', router.currentRoute.params.id)
+                .then((data) => {
+                    Event.fire('dataUser', this.data);
+                });
         },
         methods: {
             hasErrors(property) {
                 return this.error.hasOwnProperty(property) ? true : false;
+            },
+            submit() {
+                resources.updateResource('users', router.currentRoute.params.id, this.data)
+                    .then((data) => {
+                        router.push({ name: 'users'});
+                    })
+                    .catch((data) => {
+                        Event.fire('errorForm', data.response.data);
+                    });
             }
         }
     }

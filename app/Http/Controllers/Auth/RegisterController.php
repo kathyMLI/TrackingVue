@@ -13,7 +13,7 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/sendmail';
 
     public function register(Request $request)
     {
@@ -60,4 +60,9 @@ class RegisterController extends Controller
             'state' => false
         ]);
     }
+
+    // public function reSendWelcome(Request $request)
+    // {
+    //     $user->notify(new UserWelcomeNotification($user));
+    // }
 }

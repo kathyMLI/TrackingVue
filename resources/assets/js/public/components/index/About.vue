@@ -1,7 +1,15 @@
+<style>
+    article{
+        color: #004d40;
+    }
+    .content: {
+        color: #004d40;
+    }
+</style>
 <template>
     <div>
         <div class="columns container has-text-centered ">
-            <article class="tile is-vertical notification is-primary is-inverted">
+            <article class="tile is-vertical">
                 <div class="content">
                     <h1 class="title">¿Qué es TrackingApp?</h1>
                     <div class="column content is-half is-offset-one-quarter">

@@ -1,11 +1,11 @@
 <template>
     <div>
         <div v-if="ready == false">
-            <h1 class="title">Estamos procesando tu peticion</h1>
+            <h1 class="title">Estamos procesando tu petición</h1>
             <hr>
         </div>
         <div v-else>
-            <h1 class="title">Email verificado con exito</h1>
+            <h1 class="title">Email verificado con éxito</h1>
             <h2>Bienvenido, empieza a disfrutar de TrackingApp</h2>
             <hr>
         </div>

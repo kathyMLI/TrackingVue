@@ -4,7 +4,7 @@
             <h1 class="title">
                 TrackingApp
             </h1>
-            <p>TrackingApp es una aplicac</p>
+            <p>TrackingApp es una aplicación ...</p>
         </div>
     </div>
 </template>
