@@ -1,12 +1,12 @@
 @component('mail::message')
-# Hola :user :
+# Hola {{ $user }} :
 
 Tu envío ya cambió de estado:
 
 @component('mail::table')
-|  Código   	   | Estado      	|
-|:---------------- |:--------------:|
-| :trackingNumber  | 	:status		|
+|  Código   	         | Estado      	  |
+|:-----------------------|:--------------:|
+| {{ $trackingNumber }}  | 	{{ $status }} |
 @endcomponent
 
 Te notificaremos si tu envío cambia de estado nuevamente.
