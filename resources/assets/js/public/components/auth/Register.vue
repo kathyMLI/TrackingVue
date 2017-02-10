@@ -91,8 +91,8 @@
 
                 register.register(this.data)
                     .then((data) => {
+                        console.log('redirect to sendmail');
                         router.push({ name: 'sendmail'});
-                        console.log('push to sendmail');
                     })
                     .catch((data) => {
                         Event.fire('errorForm', data.response.data);

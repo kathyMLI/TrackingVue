@@ -6,7 +6,7 @@ Tu envío ya cambió de estado:
 @component('mail::table')
 |  Código   	         | Estado      	  |
 |:-----------------------|:--------------:|
-| {{ $trackingNumber }}  | 	{{ $status }} |
+| {{ $code }}  | 	{{ $status }} |
 @endcomponent
 
 Te notificaremos si tu envío cambia de estado nuevamente.

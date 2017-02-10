@@ -1,15 +1,17 @@
 <style>
     .hero {
-        background-color: #e0f2f1;
-        color: #004d40;
+        background-color: #C5CAE9;
+        color: #FFFFFF;
     }
     .hero-head{
-        background-color: #009688;
-        color: #004d40;
+        background-color: #303F9F;
+        color: #FFFFFF;
     }
     ul{
-        background-color: #009688;
-        color: #e0f2f1;
+        background-color: #303F9F;
+    }
+    .tabs a {
+        color: #FFFFFF;
     }
 </style>
 <template>
@@ -40,7 +42,7 @@
             </div>
         </div>
         <div class="hero-foot">
-            <nav class="tabs is-boxed is-one-third">
+            <nav class="tabs is-boxed is-one-third is-offset-one-third">
                 <div class="container">
                     <ul>
                         <router-link tag="li" :to="{ name: 'index' }"><a>Principal</a></router-link>

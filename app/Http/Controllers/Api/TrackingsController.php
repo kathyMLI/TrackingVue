@@ -10,8 +10,6 @@ use App\Filters\TrackingFilter;
 use App\Http\Requests;
 use App\Http\Controllers\ApiController;
 use App\Notifications\TrackingCreateNotification;
-// use App\Notifications\TrackingUpdateNotification;
-// use App\Notifications\TrackingDeliveredNotification;
 use App\Notifications\TrackingDeleteNotification;
 
 class TrackingsController extends ApiController

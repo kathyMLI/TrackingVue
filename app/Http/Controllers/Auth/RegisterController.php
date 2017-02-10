@@ -60,9 +60,4 @@ class RegisterController extends Controller
             'state' => false
         ]);
     }
-
-    // public function reSendWelcome(Request $request)
-    // {
-    //     $user->notify(new UserWelcomeNotification($user));
-    // }
 }

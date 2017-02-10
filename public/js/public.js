@@ -15543,8 +15543,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.data.rut = this.auxRut;
 
             __WEBPACK_IMPORTED_MODULE_2__services_auth__["a" /* default */].register(this.data).then(function (data) {
+                console.log('redirect to sendmail');
                 __WEBPACK_IMPORTED_MODULE_0__routes__["a" /* default */].push({ name: 'sendmail' });
-                console.log('push to sendmail');
             }).catch(function (data) {
                 Event.fire('errorForm', data.response.data);
                 Event.fire('rolesForm', _this2.roles);
@@ -15726,6 +15726,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     mounted: function mounted() {}
@@ -15880,6 +15897,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -16519,7 +16538,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, "\n.hero {\n    background-color: #e0f2f1;\n    color: #004d40;\n}\n.hero-head{\n    background-color: #009688;\n    color: #004d40;\n}\nul{\n    background-color: #009688;\n    color: #e0f2f1;\n}\n", ""]);
+exports.push([module.i, "\n.hero {\n    background-color: #C5CAE9;\n    color: #FFFFFF;\n}\n.hero-head{\n    background-color: #303F9F;\n    color: #FFFFFF;\n}\nul{\n    background-color: #303F9F;\n}\n.tabs a {\n    color: #FFFFFF;\n}\n", ""]);
 
 // exports
 
@@ -16547,7 +16566,7 @@ exports = module.exports = __webpack_require__(9)();
 
 
 // module
-exports.push([module.i, "\n.title{\n    color: #004d40;\n}\nh1{\n    font-size: 48px;\n}\n", ""]);
+exports.push([module.i, "\n.trackingapp{\n    color: #212121;\n    font-size: 48px;\n}\n.media {\n    padding-left: 20px;\n}\n.description {\n    color: #757575;\n}\n", ""]);
 
 // exports
 
@@ -17369,7 +17388,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('router-view')], 1)]), _vm._v(" "), _c('div', {
     staticClass: "hero-foot"
   }, [_c('nav', {
-    staticClass: "tabs is-boxed is-one-third"
+    staticClass: "tabs is-boxed is-one-third is-offset-one-third"
   }, [_c('div', {
     staticClass: "container"
   }, [_c('ul', [_c('router-link', {
@@ -18033,11 +18052,37 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _vm._m(0)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('div', {
-    staticClass: "container has-text-centered"
+  return _c('div', {
+    staticClass: "columns"
+  }, [_c('div', {
+    staticClass: "column is-one-half is-offset-one-quarter"
+  }, [_c('div', {
+    staticClass: "tile is-vertical is-ancestor"
+  }, [_c('div', {
+    staticClass: "media"
+  }, [_c('div', {
+    staticClass: "media-left"
+  }, [_c('figure', {
+    staticClass: "image",
+    staticStyle: {
+      "height": "100px",
+      "width": "100px"
+    }
+  }, [_c('img', {
+    staticClass: "icon",
+    attrs: {
+      "src": "img/icon.png",
+      "alt": "icon"
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "media-content"
   }, [_c('h1', {
-    staticClass: "title"
-  }, [_vm._v("\n            TrackingApp\n        ")]), _vm._v(" "), _c('p', [_vm._v("La aplicación que monitorea y notifica si tus envíos llegaron a sus destinos!")])])])
+    staticClass: "trackingapp"
+  }, [_vm._v("\n                        TrackingApp\n                    ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "tile is-parent"
+  }, [_c('p', {
+    staticClass: "description"
+  }, [_vm._v("La aplicación que monitorea y notifica si tus envíos llegaron a sus destinos!")])])])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

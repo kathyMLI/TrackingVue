@@ -1,18 +1,35 @@
 <style>
-    .title{
-        color: #004d40;
-    }
-    h1{
+    .trackingapp{
+        color: #212121;
         font-size: 48px;
+    }
+    .media {
+        padding-left: 20px;
+    }
+    .description {
+        color: #757575;
     }
 </style>
 <template>
-    <div>
-        <div class="container has-text-centered">
-            <h1 class="title">
-                TrackingApp
-            </h1>
-            <p>La aplicación que monitorea y notifica si tus envíos llegaron a sus destinos!</p>
+    <div class="columns">
+        <div class="column is-one-half is-offset-one-quarter">
+            <div class="tile is-vertical is-ancestor">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image" style="height: 100px; width: 100px;">
+                            <img src="img/icon.png" alt="icon" class="icon">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <h1 class="trackingapp">
+                            TrackingApp
+                        </h1>         
+                    </div>            
+                </div>
+                <div class="tile is-parent">
+                    <p class="description">La aplicación que monitorea y notifica si tus envíos llegaron a sus destinos!</p>    
+                </div>
+            </div>            
         </div>
     </div>
 </template>
