@@ -1,4 +1,5 @@
 const { mix } = require('laravel-mix');
+var webpack = require('webpack');
 
 /*
  |--------------------------------------------------------------------------
@@ -16,3 +17,13 @@ mix.js('resources/assets/js/admin/app.js', 'public/js/admin.js')
 
 mix.js('resources/assets/js/public/app.js', 'public/js/public.js')
     .sass('resources/assets/sass/public.scss', 'public/css/public.css');
+
+mix.webpackConfig({
+    plugins: [
+        new webpack.DefinePlugin({
+          'process.env': {
+            NODE_ENV: '"production"'
+          }
+        })
+      ]
+});
