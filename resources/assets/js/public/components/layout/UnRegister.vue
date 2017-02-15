@@ -26,12 +26,12 @@
                         </router-link>
                     </div>
                     <div class="nav-right nav-menu">
-                        <span class="nav-item">
-                            <router-link :to="{ name: 'login' } " class="button is-inverted" >Entrar</router-link>
-                        </span>
-                        <span class="nav-item">
-                            <router-link :to="{ name: 'register' }" >Registro</router-link>
-                        </span>
+                        <router-link :to="{ name: 'login' }" class="nav-item">
+                            Entrar
+                        </router-link>
+                        <router-link :to="{ name: 'register' }" class="nav-item">
+                            Registro
+                        </router-link>
                     </div>
                 </div>
             </header>

@@ -15865,6 +15865,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     computed: {
@@ -16557,7 +16562,7 @@ exports = module.exports = __webpack_require__(6)();
 
 
 // module
-exports.push([module.i, "\n\n", ""]);
+exports.push([module.i, "\n.tabs li.is-active a {\ncolor: #303F9F;\n}\n", ""]);
 
 // exports
 
@@ -17240,7 +17245,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "column is-half is-offset-one-quarter"
   }, [_c('form', [_c('label', {
     staticClass: "label"
-  }, [_vm._v("Codigo")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("Código")]), _vm._v(" "), _c('p', {
     staticClass: "control"
   }, [(_vm.action != 'Editar') ? _c('input', {
     directives: [{
@@ -17295,7 +17300,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "help is-danger"
   }, [_vm._v("\n                            " + _vm._s(_vm.error.code[0]) + "\n                        ")]) : _vm._e(), _vm._v(" "), _c('label', {
     staticClass: "label"
-  }, [_vm._v("Descripcion")]), _vm._v(" "), _c('p', {
+  }, [_vm._v("Descripción")]), _vm._v(" "), _c('p', {
     staticClass: "control"
   }, [_c('textarea', {
     directives: [{
@@ -17323,13 +17328,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })]), _vm._v(" "), (_vm.hasErrors('description')) ? _c('span', {
     staticClass: "help is-danger"
   }, [_vm._v("\n                            " + _vm._s(_vm.error.description[0]) + "\n                        ")]) : _vm._e(), _vm._v(" "), _c('button', {
-    staticClass: "button is-primary",
+    staticClass: "button",
     on: {
       "click": function($event) {
         _vm.submit()
       }
     }
-  }, [_vm._v("\n                        Enviar\n                    ")])])])])])])
+  }, [_vm._v("\n                        Envíar\n                    ")])])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -17373,24 +17378,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])], 1), _vm._v(" "), _c('div', {
     staticClass: "nav-right nav-menu"
-  }, [_c('span', {
-    staticClass: "nav-item"
   }, [_c('router-link', {
-    staticClass: "button is-inverted",
+    staticClass: "nav-item",
     attrs: {
       "to": {
         name: 'login'
       }
     }
-  }, [_vm._v("Entrar")])], 1), _vm._v(" "), _c('span', {
-    staticClass: "nav-item"
-  }, [_c('router-link', {
+  }, [_vm._v("\n                        Entrar\n                    ")]), _vm._v(" "), _c('router-link', {
+    staticClass: "nav-item",
     attrs: {
       "to": {
         name: 'register'
       }
     }
-  }, [_vm._v("Registro")])], 1)])])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                        Registro\n                    ")])], 1)])])]), _vm._v(" "), _c('div', {
     staticClass: "hero-body"
   }, [_c('div', {
     staticClass: "container has-text-centered"
@@ -17996,7 +17998,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         name: 'trackings'
       }
     }
-  }, [_vm._v("Administracion")]), _vm._v(" "), _c('router-link', {
+  }, [_vm._v("Administración")]), _vm._v(" "), _c('router-link', {
     staticClass: "nav-item",
     attrs: {
       "to": {
@@ -18023,7 +18025,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         name: 'trackings'
       }
     }
-  }, [_c('a', [_vm._v("Seguimiento")])]), _vm._v(" "), _c('a', [_vm._v("Estadisticas")])], 1)])])]) : _vm._e()])])
+  }, [_c('a', [_vm._v("Seguimiento")])]), _vm._v(" "), _c('a', [_vm._v("Estadísticas")])], 1)])])]) : _vm._e()])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "nav-left"

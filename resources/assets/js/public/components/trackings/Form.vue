@@ -8,7 +8,7 @@
             <div class="columns">
                 <div class="column is-half is-offset-one-quarter">
                     <form>
-                        <label class="label">Codigo</label>
+                        <label class="label">Código</label>
                         <p class="control">
                             <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" v-if="action != 'Editar'">
                             <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" disabled v-else>
@@ -16,15 +16,15 @@
                         <span v-if="hasErrors('code')" class="help is-danger">
                                 {{ error.code[0] }}
                             </span>
-                        <label class="label">Descripcion</label>
+                        <label class="label">Descripción</label>
                         <p class="control">
                             <textarea id="message" class="textarea" v-model="data.description" v-bind:class="{ 'is-danger': hasErrors('description')}"></textarea>
                         </p>
                         <span v-if="hasErrors('description')" class="help is-danger">
                                 {{ error.description[0] }}
                             </span>
-                        <button class="button is-primary" @click="submit()">
-                            Enviar
+                        <button class="button" @click="submit()">
+                            Envíar
                         </button>
                     </form>
                 </div>

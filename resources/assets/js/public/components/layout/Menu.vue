@@ -1,5 +1,7 @@
 <style>
-    
+    .tabs li.is-active a {
+    color: #303F9F;
+    }
 </style>
 <template>
     <div>
@@ -15,7 +17,7 @@
                         </div>
                         <div class="nav-right nav-menu">
                             <router-link :to="{ name: 'home' }" class="nav-item">Home</router-link>
-                            <router-link :to="{ name: 'trackings' }" class="nav-item">Administracion</router-link>
+                            <router-link :to="{ name: 'trackings' }" class="nav-item">Administración</router-link>
                             <router-link :to="{ name: 'accountSettings' }" class="nav-item">Cuenta</router-link>
                             <a class="nav-item" @click="logOut()">Salir</a>
                         </div> 
@@ -36,8 +38,11 @@
                 <nav class="tabs is-boxed">
                     <div class="container">
                         <ul>
-                            <router-link tag="li" :to="{ name: 'trackings' }"><a>Seguimiento</a></router-link>
-                            <a>Estadisticas</a>
+                            <router-link tag="li" :to="{ name: 'trackings' }">
+                                <a>Seguimiento</a>
+                            </router-link>
+
+                            <a>Estadísticas</a>
                         </ul>
                     </div>
                 </nav>
