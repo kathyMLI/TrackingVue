@@ -1,12 +1,16 @@
+<style>
+    
+</style>
 <template>
     <div>
-        <section class="hero is-primary">
+        <section class="hero">
             <div class="hero-head">
                 <header class="nav">
                     <div class="container">
                         <div class="nav-left">
                             <a class="nav-item">
-                                <img src="img/logo2.png" alt="Aphix">
+                                <img src="img/icon.png" alt="icon">
+                                <img src="img/logo.png" alt="TrackingApp">
                             </a>
                         </div>
                         <div class="nav-right nav-menu">

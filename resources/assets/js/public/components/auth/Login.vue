@@ -27,7 +27,7 @@
                         </p>
                         <div class="control is-grouped">
                             <p class="control">
-                                <button class="button is-primary is-inverted" @click="submit()">Entrar</button>
+                                <button class="button" @click="submit()">Entrar</button>
                             </p>
                         </div>
                     </div>

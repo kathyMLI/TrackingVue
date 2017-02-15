@@ -12,7 +12,7 @@
 </style>
 <template>
     <div class="columns">
-        <div class="column is-one-half is-offset-one-quarter">
+        <div class="column is-one-third is-offset-one-third">
             <div class="tile is-vertical is-ancestor">
                 <div class="media">
                     <div class="media-left">

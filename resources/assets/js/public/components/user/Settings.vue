@@ -14,7 +14,7 @@
                                 <input class="input" type="text" placeholder="Nuevo Nombre" v-model="data.name" >
                             </p>
                             <p class="control">
-                                <button class="button is-primary" @click="submit()">Cambiar</button>
+                                <button class="button" @click="submit()">Cambiar</button>
                             </p>
                         </div>
                         <br>
@@ -36,7 +36,7 @@
                         </p>
                         <div class="control is-grouped">
                             <p class="control">
-                                <button class="button is-primary" @click="submit()">Cambiar</button>
+                                <button class="button" @click="submit()">Cambiar</button>
                             </p>
                         </div>
                     </div>

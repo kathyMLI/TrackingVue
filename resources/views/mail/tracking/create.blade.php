@@ -1,15 +1,15 @@
 @component('mail::message')
 # Hola {{ $user }} :
 
-Tu envío ya cambió de estado:
+Tu envío ha sido registrado correctamente:
 
 @component('mail::table')
-|  Código   	         | Estado      	  |
+|  Código   	         | Descripción      	  |
 |:-----------------------|:--------------:|
-| {{ $code }}  | 	{{ $status }} |
+| {{ $code }}  | 	{{ $description }} |
 @endcomponent
 
-Te notificaremos si tu envío cambia de estado nuevamente.
+Te notificaremos si tu envío cambia de estado.
 
 Atte,<br>
 {{ config('app.name') }}

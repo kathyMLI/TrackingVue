@@ -8,7 +8,7 @@
             <div class="">
                 <div class="">
                     <div class="pull-right">
-                        <router-link :to="{ name: 'trackingsCreate' }" class="button is-primary">Nuevo Paquete</router-link>
+                        <router-link :to="{ name: 'trackingsCreate' }" class="button">Nuevo Paquete</router-link>
                     </div>
                 </div>
             </div>
@@ -19,17 +19,17 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Codigo</th>
-                                        <th>Descripcion</th>
+                                        <th>Código</th>
+                                        <th>Descripción</th>
                                         <th>Estado</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><p class="control"><input v-model="search.code" v-on:blur="filter" type="text" class="input" placeholder="Codigo"></p></td>
-                                        <td><p class="control"><input v-model="search.description" v-on:blur="filter" type="text" class="input" placeholder="Descripcion"></p></td>
-                                        <td><p class="control"><input v-model="search.delivered" v-on:blur="filter" type="text" class="input" placeholder="Estado"></p></td>
+                                        <td><p class="control"><input v-model="search.code" v-on:blur="filter" type="text" class="input" placeholder="Buscar Código"></p></td>
+                                        <td><p class="control"><input v-model="search.description" v-on:blur="filter" type="text" class="input" placeholder="Buscar Descripción"></p></td>
+                                        <td><p class="control"><input v-model="search.delivered" v-on:blur="filter" type="text" class="input" placeholder="Buscar Estado"></p></td>
                                         <td></td>
                                     </tr>
                                     <tr v-for="(track, index) in data.data">

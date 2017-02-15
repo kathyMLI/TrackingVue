@@ -46,7 +46,7 @@
                                 </span>
                             </p>
                             <br>
-                            <button class="button is-primary is-inverted" @click="submit()">
+                            <button class="button" @click="submit()">
                                 Registrarse
                             </button>
                         </form>

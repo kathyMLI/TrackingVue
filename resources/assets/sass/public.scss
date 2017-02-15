@@ -23,3 +23,19 @@
     height: 49.8px;
     border-radius: 100px;
 }
+.button {
+	background-color: #FFEB3B;
+    border: 1px solid #BDBDBD;
+    color: #303F9F;
+    border-radius: 7px;
+}
+
+.button:focus, .button.is-focused {
+    border-color: #3F51B5;
+    color: #212121;
+}
+
+hr {
+	background-color: #3F51B5;
+	height: 2px;
+}
