@@ -51,4 +51,9 @@ class Tracking extends Model
         return $this->belongsToMany(User::class)
             ->withPivot('description');
     }
+
+    public function postalPlatform()
+    {
+        return $this->belongsTo(PostalPlatform::class);
+    }
 }

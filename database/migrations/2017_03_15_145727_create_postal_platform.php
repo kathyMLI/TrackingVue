@@ -13,7 +13,7 @@ class CreatePostalPlatform extends Migration
      */
     public function up()
     {
-        Schema::create('postal_platform', function (Blueprint $table) {
+        Schema::create('postal_platforms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
@@ -23,7 +23,7 @@ class CreatePostalPlatform extends Migration
             $table->integer('platform_id')->unsigned()->nullable();
             $table->foreign('platform_id')
                 ->references('id')
-                ->on('postal_platform')
+                ->on('postal_platforms')
                 ->onDelete('cascade');
         });
     }
