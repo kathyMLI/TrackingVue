@@ -26,5 +26,8 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::post('/markNotificationsAsRead', function (Request $request) {
         $request->user()->unreadNotifications()->update(['read_at' => \Carbon\Carbon::now()]);
     });
+
+    Route::get('/platforms', 'PostalPlatformsController@index');
+
     Route::get('announcements', 'AnnouncementsController@index');
 });

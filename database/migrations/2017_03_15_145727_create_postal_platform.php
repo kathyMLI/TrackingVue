@@ -20,8 +20,8 @@ class CreatePostalPlatform extends Migration
         });
 
         Schema::table('trackings', function($table) {
-            $table->integer('platform_id')->unsigned()->nullable();
-            $table->foreign('platform_id')
+            $table->integer('postal_platform_id')->unsigned()->nullable();
+            $table->foreign('postal_platform_id')
                 ->references('id')
                 ->on('postal_platforms')
                 ->onDelete('cascade');

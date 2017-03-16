@@ -8,24 +8,45 @@
             <div class="columns">
                 <div class="column is-half is-offset-one-quarter">
                     <form>
-                        <label class="label">Código</label>
-                        <p class="control">
-                            <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" v-if="action != 'Editar'">
-                            <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" disabled v-else>
-                        </p>
-                        <span v-if="hasErrors('code')" class="help is-danger">
+                        <div class="field">
+                            <label class="label">Código</label>
+                            <p class="control">
+                                <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" v-if="action != 'Editar'">
+                                <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" disabled v-else>
+                            </p>
+                            <span v-if="hasErrors('code')" class="help is-danger">
                                 {{ error.code[0] }}
                             </span>
-                        <label class="label">Descripción</label>
-                        <p class="control">
-                            <textarea id="message" class="textarea" v-model="data.description" v-bind:class="{ 'is-danger': hasErrors('description')}"></textarea>
-                        </p>
-                        <span v-if="hasErrors('description')" class="help is-danger">
+                        </div>
+                        <div class="field">
+                            <label class="label">Compañia</label>
+                            <p class="control">
+                                <span class="select">
+                                    <select v-model="data.platform">
+                                        <option v-for="platform in platforms" :value="platform.id">{{ platform.name }}</option>
+                                    </select>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Descripción</label>
+                            <p class="control">
+                                <textarea id="message" class="textarea" v-model="data.description" v-bind:class="{ 'is-danger': hasErrors('description')}"></textarea>
+                            </p>
+                            <span v-if="hasErrors('description')" class="help is-danger">
                                 {{ error.description[0] }}
                             </span>
-                        <button class="button" @click="submit()">
-                            Envíar
-                        </button>
+                        </div>
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <button class="button" @click="submit()">
+                                    Envíar
+                                </button>
+                            </p>
+                            <p class="control">
+                                <button class="button is-link">Cancel</button>
+                            </p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -39,32 +60,17 @@
             action: {
                 type: String,
                 required: true
-            },
-            defaultCode: {
-                type: String,
-                required: false
-            },
-            defaultDescription: {
-                type: String,
-                required: false
             }
         },
         data() {
             return {
                 data: {
                     code: '',
-                    description: ''
+                    description: '',
+                    platform: ''
                 },
                 error: '',
-                roles: []
-            }
-        },
-        beforeMount(){
-            if (this.defaultCode != null) {
-                this.data.code = this.defaultCode
-            }
-            if (this.defaultDescription != null) {
-                this.data.description = this.defaultDescription
+                platforms: []
             }
         },
         mounted() {
@@ -74,6 +80,9 @@
             Event.listen('errorForm', (msg) => {
                 this.error = msg;
             });
+            Event.listen('dataPlatforms', (msg) => {
+                this.platforms = msg;
+            })
         },
         methods: {
             submit() {

@@ -30,6 +30,7 @@ class TrackingsController extends ApiController
         if ($tracking->isEmpty()) {
             Tracking::create(Tracking::getData($request->code));
             $tracking = Tracking::getByCode($request->code);
+            $tracking->first()->postalPlatform()->associate($request->platform)->save();
         }
 
         if ($request->user()->canAttach($request->code)) {

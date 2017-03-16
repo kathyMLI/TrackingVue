@@ -12,6 +12,13 @@
                 error: ''
             }
         },
+        beforeMount() {
+            resources.getResources('platforms')
+                .then((data) => {
+                    console.log(data.data);
+                    Event.fire('dataPlatforms', data.data);
+                })
+        },
         methods: {
             create(tracking) {
                 console.log(tracking);
