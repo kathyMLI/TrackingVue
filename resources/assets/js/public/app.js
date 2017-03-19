@@ -17,6 +17,7 @@ Vue.use(VueProgressBar, {
 
 Vue.component('layout', require('./components/layout/Layout.vue'));
 Vue.component('login', require('./components/auth/Login.vue'));
+Vue.component('register', require('./components/auth/Register.vue'));
 //Vue.component('notifications', require('./components/layout/Notifications.vue'));
 Vue.component('heroMenu', require('./components/layout/Menu.vue'));
 Vue.component('trackingForm', require('./components/trackings/Form.vue'))

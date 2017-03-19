@@ -15,44 +15,47 @@
     }
 </style>
 <template>
-    <section class="hero is-fullheight">
-        <div class="hero-head">
-            <header class="nav">
-                <div class="container">
-                    <div class="nav-left">
-                        <router-link :to="{ name: 'index' }" class="nav-item">
-                            <img src="img/icon.png" alt="icon">
-                            <img src="img/logo.png" alt="TrackingApp">
-                        </router-link>
+    <div>
+        <section class="hero is-medium">
+            <div class="hero-head">
+                <header class="container">
+                    <div class="nav">
+                        <div class="nav-left">
+                            <router-link :to="{ name: 'index' }" class="nav-item is-brand">
+                                <img src="img/icon.png" alt="icon">
+                                <img src="img/logo.png" alt="TrackingApp">
+                            </router-link>
+                        </div>
+                        <span id="nav-toggle" class="nav-toggle">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                        <div class="nav-right nav-menu">
+                            <router-link :to="{ name: 'login' }" class="nav-item">
+                                Entrar
+                            </router-link>
+                            <router-link :to="{ name: 'register' }" class="nav-item">
+                                Registro
+                            </router-link>
+                        </div>
                     </div>
-                    <div class="nav-right nav-menu">
-                        <router-link :to="{ name: 'login' }" class="nav-item">
-                            Entrar
-                        </router-link>
-                        <router-link :to="{ name: 'register' }" class="nav-item">
-                            Registro
-                        </router-link>
-                    </div>
-                </div>
-            </header>
-        </div>
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <router-view></router-view>
+                </header>
             </div>
-        </div>
-        <div class="hero-foot">
-            <nav class="tabs is-boxed is-one-third is-offset-one-third">
-                <div class="container">
-                    <ul>
-                        <router-link tag="li" :to="{ name: 'index' }"><a>Principal</a></router-link>
-                        <router-link tag="li" :to="{ name: 'about' }"><a>TrackingApp</a></router-link>
-                        <router-link tag="li" :to="{ name: 'aboutUs' }"><a>¿Quienes somos?</a></router-link>
-                    </ul>
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <router-view></router-view>
                 </div>
-            </nav>
-        </div>
-    </section>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <strong>TrackingApp</strong>. <a href="app#/about">Acerca de nosotros</a>
+                </div>
+            </div>
+        </footer>
+    </div>
 </template>
 <script>
     export default {

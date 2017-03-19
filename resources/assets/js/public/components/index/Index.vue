@@ -12,7 +12,7 @@
 </style>
 <template>
     <div class="columns">
-        <div class="column is-one-third is-offset-one-third">
+        <div class="column is-two-third">
             <div class="tile is-vertical is-ancestor">
                 <div class="media">
                     <div class="media-left">
@@ -31,12 +31,16 @@
                 </div>
             </div>            
         </div>
+        <div class="column is-one-third">
+            <register></register>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
         mounted() {
+
         }
     }
 </script>
