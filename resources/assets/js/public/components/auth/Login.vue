@@ -27,7 +27,7 @@
                         </p>
                         <div class="control is-grouped">
                             <p class="control">
-                                <button class="button" @click="submit()">Entrar</button>
+                                <button class="button" @click="submit()" v-bind:class="{'is-loading': buttonLoading}">Entrar</button>
                             </p>
                         </div>
                     </div>
@@ -47,12 +47,14 @@
                     email: '',
                     password: ''
                 },
-                error: ''
+                error: '',
+                buttonLoading: false
             }
         },
         methods: {
             submit() {
-    
+                this.buttonLoading = true;
+
                 var credentials = {
                     email: this.credentials.email,
                     password: this.credentials.password
@@ -65,6 +67,7 @@
                         router.push({ name: 'home'});
                     })
                     .catch((data) => {
+                        this.buttonLoading = false;
                         this.error = data.response.data;
                         this.hasError = true;
                     });

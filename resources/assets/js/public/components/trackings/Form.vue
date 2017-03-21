@@ -9,16 +9,6 @@
                 <div class="column is-half is-offset-one-quarter">
                     <form>
                         <div class="field">
-                            <label class="label">Código</label>
-                            <p class="control">
-                                <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" v-if="action != 'Editar'">
-                                <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" disabled v-else>
-                            </p>
-                            <span v-if="hasErrors('code')" class="help is-danger">
-                                {{ error.code[0] }}
-                            </span>
-                        </div>
-                        <div class="field">
                             <label class="label">Compañia</label>
                             <p class="control">
                                 <span class="select">
@@ -27,6 +17,16 @@
                                     </select>
                                 </span>
                             </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Código</label>
+                            <p class="control">
+                                <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" v-if="action != 'Editar'">
+                                <input type="text" id="code" v-model="data.code" class="input" v-bind:class="{ 'is-danger': hasErrors('code')}" disabled v-else>
+                            </p>
+                            <span v-if="hasErrors('code')" class="help is-danger">
+                                {{ error.code[0] }}
+                            </span>
                         </div>
                         <div class="field">
                             <label class="label">Descripción</label>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="field is-grouped">
                             <p class="control">
-                                <button class="button" @click="submit()">
+                                <button class="button" @click="submit()" v-bind:class="{'is-loading': buttonLoading}">
                                     Envíar
                                 </button>
                             </p>
@@ -70,7 +70,8 @@
                     platform: ''
                 },
                 error: '',
-                platforms: []
+                platforms: [],
+                buttonLoading: false
             }
         },
         mounted() {
@@ -78,6 +79,7 @@
                 this.data = msg;
             });
             Event.listen('errorForm', (msg) => {
+                this.buttonLoading = false;
                 this.error = msg;
             });
             Event.listen('dataPlatforms', (msg) => {
@@ -86,6 +88,7 @@
         },
         methods: {
             submit() {
+                this.buttonLoading = true;
                 this.$emit('submit', this.data);
             },
             hasErrors(property) {

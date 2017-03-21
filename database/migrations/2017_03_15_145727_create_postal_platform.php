@@ -16,6 +16,7 @@ class CreatePostalPlatform extends Migration
         Schema::create('postal_platforms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('label');
             $table->timestamps();
         });
 

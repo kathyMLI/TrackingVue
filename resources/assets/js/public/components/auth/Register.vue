@@ -43,7 +43,7 @@
                     </span>
                 </p>
                 <br>
-                <button class="button is-warning" @click="submit()" v-bind:class="{'is-loading': buttonLoading}">
+                <button class="button" @click="submit()" v-bind:class="{'is-loading': buttonLoading}">
                     Registrarse
                 </button>
             </form>

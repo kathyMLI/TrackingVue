@@ -26,12 +26,12 @@
                                 <img src="img/logo.png" alt="TrackingApp">
                             </router-link>
                         </div>
-                        <span id="nav-toggle" class="nav-toggle">
+                        <span id="nav-toggle" class="nav-toggle" v-bind:class="{ 'is-active': toggleActive }" @click="toggleActive = !toggleActive">
                             <span></span>
                             <span></span>
                             <span></span>
                         </span>
-                        <div class="nav-right nav-menu">
+                        <div class="nav-right nav-menu" v-bind:class="{ 'is-active': toggleActive }">
                             <router-link :to="{ name: 'login' }" class="nav-item">
                                 Entrar
                             </router-link>
@@ -59,6 +59,11 @@
 </template>
 <script>
     export default {
+        data() {
+            return {
+                toggleActive: false
+            }
+        },
         mounted() {
 
         }

@@ -7,19 +7,6 @@
                 </div>
                 <div>
                     <div>
-                        <h3>Cambio de nombre</h3>
-                        <hr>
-                        <div class="control is-grouped">
-                            <p class="control is-expanded">
-                                <input class="input" type="text" placeholder="Nuevo Nombre" v-model="data.name" >
-                            </p>
-                            <p class="control">
-                                <button class="button" @click="submit()">Cambiar</button>
-                            </p>
-                        </div>
-                        <br>
-                    </div>
-                    <div>
                         <h3>Cambio de contraseña</h3>
                         <hr>
                         <label class="label">Contraseña antigua</label>

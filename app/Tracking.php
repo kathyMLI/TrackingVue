@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use IsaiasCardenas\CorreosChile\Domcrawler;
+use IsaiasCardenas\Domcrawler\Domcrawler;
 use App\Filters\Filterable;
 
 class Tracking extends Model
@@ -19,10 +19,10 @@ class Tracking extends Model
         return self::where('code', '=', $code)->get();
     }
 
-    public static function getData($code)
+    public static function getData($code, $platform)
     {
-        $dom = new Domcrawler($code);
-        $track = json_decode($dom->getData());
+        $dom = new Domcrawler();
+        $track = json_decode($dom->parse($code, $platform));
         return [
             "code" => $code,
             "delivered" => $track->delivered,

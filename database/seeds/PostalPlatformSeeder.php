@@ -13,12 +13,12 @@ class PostalPlatformSeeder extends Seeder
     public function run()
     {
         $platforms = [
-            ['name' => 'Correos de Chile'],
-            ['name' => 'Chilexpress'],
-            ['name' => 'Starken'],
-            ['name' => 'DHL'],
-            ['name' => 'Groupon'],
-            ['name' => 'Blue Express']
+            ['name' => 'Correos de Chile', 'label' => 'correos'],
+            ['name' => 'Chilexpress', 'label' => 'chilexpress'],
+            ['name' => 'Starken', 'label' => 'starken'],
+            ['name' => 'DHL', 'label' => 'dhl'],
+            ['name' => 'Groupon', 'label' => 'groupon'],
+            ['name' => 'Blue Express', 'label' => 'blue']
         ];
 
         foreach($platforms as $platform) {

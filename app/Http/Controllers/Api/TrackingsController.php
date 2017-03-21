@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Tracking;
+use App\PostalPlatform;
 use App\Filters\TrackingFilter;
 use App\Http\Requests;
 use App\Http\Controllers\ApiController;
@@ -28,7 +29,9 @@ class TrackingsController extends ApiController
 
         $tracking = Tracking::getByCode($request->code);
         if ($tracking->isEmpty()) {
-            Tracking::create(Tracking::getData($request->code));
+            $postalPlatform = PostalPlatform::find($request->platform);
+
+            Tracking::create(Tracking::getData($request->code, $postalPlatform->label));
             $tracking = Tracking::getByCode($request->code);
             $tracking->first()->postalPlatform()->associate($request->platform)->save();
         }
