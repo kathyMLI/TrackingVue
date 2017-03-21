@@ -9,23 +9,29 @@
                         <hr>
                     </div>
                     <div>
-                        <label class="label">Correo</label>
-                        <p class="control">
-                            <input class="input" type="email" placeholder="Email" v-model="credentials.email" v-bind:class="{ 'is-danger': hasErrors('email') }">
-                            <span class="help is-danger" v-if="hasErrors('email')">{{ error.email[0] }}</span>
-                        </p>
-                        <label class="label">Contraseña</label>
-                        <p class="control">
-                            <input class="input" type="password" placeholder="Password" v-model="credentials.password" v-bind:class="{ 'is-danger': hasErrors('password') }">
-                            <span class="help is-danger" v-if="hasErrors('password')">{{ error.password[0] }}</span>
-                        </p>
-                        <p class="control">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                Remember me
-                            </label>
-                        </p>
-                        <div class="control is-grouped">
+                        <div class="field">
+                            <label class="label">Correo</label>
+                            <p class="control">
+                                <input class="input" type="email" placeholder="Email" v-model="credentials.email" v-bind:class="{ 'is-danger': hasErrors('email') }">
+                                <span class="help is-danger" v-if="hasErrors('email')">{{ error.email[0] }}</span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label class="label">Contraseña</label>
+                            <p class="control">
+                                <input class="input" type="password" placeholder="Password" v-model="credentials.password" v-bind:class="{ 'is-danger': hasErrors('password') }">
+                                <span class="help is-danger" v-if="hasErrors('password')">{{ error.password[0] }}</span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Remember me
+                                </label>
+                            </p>
+                        </div>
+                        <div class="field is-grouped">
                             <p class="control">
                                 <button class="button" @click="submit()" v-bind:class="{'is-loading': buttonLoading}">Entrar</button>
                             </p>

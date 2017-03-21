@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('public');
 });
 
 Route::get('/app', function () {

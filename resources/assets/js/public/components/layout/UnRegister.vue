@@ -32,12 +32,7 @@
                             <span></span>
                         </span>
                         <div class="nav-right nav-menu" v-bind:class="{ 'is-active': toggleActive }">
-                            <router-link :to="{ name: 'login' }" class="nav-item">
-                                Entrar
-                            </router-link>
-                            <router-link :to="{ name: 'register' }" class="nav-item">
-                                Registro
-                            </router-link>
+                            <a class="nav-item" @click="modalView = !modalView">Entrar</a>
                         </div>
                     </div>
                 </header>
@@ -48,6 +43,15 @@
                 </div>
             </div>
         </section>
+        <div class="modal" v-bind:class="{ 'is-active': modalView}">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <loginIndex></loginIndex>
+                </div>
+            </div>
+            <button class="modal-close" @click="modalView = !modalView"></button>
+        </div>
         <footer class="footer">
             <div class="container">
                 <div class="content has-text-centered">
@@ -61,7 +65,8 @@
     export default {
         data() {
             return {
-                toggleActive: false
+                toggleActive: false,
+                modalView: false
             }
         },
         mounted() {
