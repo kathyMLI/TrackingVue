@@ -41,8 +41,6 @@
                             <router-link tag="li" :to="{ name: 'trackings' }">
                                 <a>Seguimiento</a>
                             </router-link>
-
-                            <a>Estadísticas</a>
                         </ul>
                     </div>
                 </nav>
