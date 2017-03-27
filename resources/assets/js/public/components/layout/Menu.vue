@@ -21,8 +21,7 @@
                             <span></span>
                         </span>
                         <div class="nav-right nav-menu" v-bind:class="{ 'is-active': toggleActive }">
-                            <router-link :to="{ name: 'home' }" class="nav-item">Home</router-link>
-                            <router-link :to="{ name: 'trackings' }" class="nav-item">Administración</router-link>
+                            <router-link :to="{ name: 'trackings' }" class="nav-item">Trackings</router-link>
                             <router-link :to="{ name: 'accountSettings' }" class="nav-item">Cuenta</router-link>
                             <a class="nav-item" @click="logOut()">Salir</a>
                         </div> 

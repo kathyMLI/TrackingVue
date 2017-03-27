@@ -56,7 +56,7 @@
                         localStorage.setItem('token', data.data.token);
                         auth.user.authenticated = true;
                         auth.setAuthHeader(localStorage.getItem('token'));
-                        router.push({ name: 'home'});
+                        router.push({ name: 'trackings'});
                     })
                     .catch((data) => {
                         this.buttonLoading = false;
