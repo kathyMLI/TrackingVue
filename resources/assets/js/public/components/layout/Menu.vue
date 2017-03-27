@@ -15,7 +15,12 @@
                                 <img src="img/logo.png" alt="TrackingApp">
                             </a>
                         </div>
-                        <div class="nav-right nav-menu">
+                        <span id="nav-toggle" class="nav-toggle" v-bind:class="{ 'is-active': toggleActive }" @click="toggleActive = !toggleActive">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                        <div class="nav-right nav-menu" v-bind:class="{ 'is-active': toggleActive }">
                             <router-link :to="{ name: 'home' }" class="nav-item">Home</router-link>
                             <router-link :to="{ name: 'trackings' }" class="nav-item">Administración</router-link>
                             <router-link :to="{ name: 'accountSettings' }" class="nav-item">Cuenta</router-link>
@@ -50,6 +55,11 @@
 </template>
 <script>
     export default {
+        data() {
+            return {
+                toggleActive: false
+            }
+        },
         computed: {
             showFoot: function() {
                 if(this.$route.name.indexOf('home') != -1 || this.$route.name.indexOf('account') != -1) {
