@@ -48,7 +48,7 @@ class TrackingDeleteNotification extends Notification
         $name = $this->name;
 
         return (new MailMessage)
-            ->subject('Tracking eliminado')
+            ->subject('Tracking ' + $code + ' eliminado')
             ->markdown('mail.tracking.delete', compact('code', 'name'));
     }
 
