@@ -21,6 +21,7 @@
                                     <tr>
                                         <th>Código</th>
                                         <th>Descripción</th>
+                                        <th>Estado Legible</th>
                                         <th>Estado</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -31,11 +32,13 @@
                                         <td><p class="control"><input v-model="search.description" v-on:blur="filter" type="text" class="input" placeholder="Buscar Descripción"></p></td>
                                         <td><p class="control"><input v-model="search.delivered" v-on:blur="filter" type="text" class="input" placeholder="Buscar Estado"></p></td>
                                         <td></td>
+                                        <td></td>
                                     </tr>
                                     <tr v-for="(track, index) in data.data">
                                         <td>{{ track.code }}</td>
                                         <td>{{ setString(track.pivot.description) }}</td>
                                         <td>{{ track.delivered}}</td>
+                                        <td>{{ getSendingStatus(track.history[0]) }}</td>
                                         <td>
                                             <a class="button" @click="setModal(track)"><i class="fa fa-eye"></i></a>
                                             <router-link :to="{ name: 'trackingsEdit', params: { id: track.id} }" class="button"><span class="fa fa-pencil-square-o"></span></router-link>
@@ -146,6 +149,7 @@
                     this.data.totalItems = data.data.total;
                     this.data.itemsPerPage = data.data.per_page;
                     this.data.currentPage = data.data.current_page;
+                    console.log(this.data);
                 })
         },
         methods: {
@@ -170,6 +174,12 @@
             setModal(tracking) {
                 this.modal.data = tracking;
                 this.modal.show = true;
+            },
+            getSendingStatus(history_data) {
+                if(history_data) {
+                    return history_data.sendingStatus;
+                }
+                return 'SIN INFORMACION';
             },
             delete(id, index) {
                 resources.deleteResource(this.resource , id)
