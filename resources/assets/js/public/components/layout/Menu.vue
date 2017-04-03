@@ -31,10 +31,10 @@
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <h1 class="title">
-                        Vuelerplate
+                        TrackingApp
                     </h1>
                     <h2 class="subtitle">
-                        Laravel + Vue
+                        La aplicación que monitorea y notifica si tus envíos llegaron a sus destinos!
                     </h2>
                 </div>
             </div>

@@ -59,23 +59,14 @@
                                     <button class="delete" @click="modal.show = false, modal.current = 'description'"></button>
                                 </header>
                                 <section class="modal-card-body">
-                                    <div class="tabs is-centered">
-                                        <ul>
-                                            <li @click="modal.current = 'description'" v-bind:class="{ 'is-active': modal.current == 'description'}">
-                                                <a>Descripcion</a>
-                                            </li>
-                                            <li @click="modal.current = 'history'" v-bind:class="{ 'is-active': modal.current == 'history'}">
-                                                <a>Historial</a>
-                                            </li>
-                                            <li @click="modal.current = 'delivered'" v-bind:class="{ 'is-active': modal.current == 'delivered'}" v-if="modal.data.delivered == 'Entregado'">
-                                                <a>Entrega</a>
-                                            </li>
-                                        </ul>
+                                    <div class="modalDescription">
+                                        <h2 class="tittle">Descripcion</h2>
+                                        <hr>
+                                        <p>{{ modal.data.pivot.description }}</p>
                                     </div>
-                                    <div class="modalDescription" v-if="modal.current == 'description'">
-                                        {{ modal.data.pivot. description }}
-                                    </div>
-                                    <div class="modalHistory" v-if="modal.current == 'history'">
+                                    <div class="modalHistory">
+                                        <h2 class="tittle">Historial</h2>
+                                        <hr>
                                         <table class="table">
                                             <thead>
                                                 <tr>
@@ -93,12 +84,14 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="modalDelivered" v-if="modal.current == 'delivered'">
+                                    <div class="modalDelivered" v-if="modal.data.data.delivery_table.deliveredTo">
+                                        <h2 class="tittle">Entrega</h2>
+                                        <hr>
                                         <b>Entregado a:</b> {{ modal.data.data.delivery_table.deliveredTo }}
                                         <br>
-                                        <b>Rut:</b> {{ modal.data.data.delivery_table.deliveredToRut }}
+                                        <b v-if="modal.data.data.delivery_table.deliveredToRut">Rut:</b> {{ modal.data.data.delivery_table.deliveredToRut }}
                                         <br>
-                                        <b>Fecha:</b> {{ modal.data.data.delivery_table.deliveredDate }}
+                                        <b v-if="modal.data.data.delivery_table.deliveredDate">Fecha:</b> {{ modal.data.data.delivery_table.deliveredDate }}
                                     </div>
                                 </section>
                             </div>
@@ -131,11 +124,15 @@
                 },
                 modal: {
                     show: false,
-                    current: 'description',
                     data: {
                         delivered: '',
                         pivot: {
                             description: ''
+                        },
+                        data : {
+                            delivery_table: {
+
+                            }
                         }
                     }
                 },
