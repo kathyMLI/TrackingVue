@@ -12,11 +12,13 @@ export default {
         })
             .then(() => {
                 callback(data, index);
-                swal(
+                setTimeout(function() {
+                    swal(
                     'Eliminado!',
                     'El registro ha sido eliminado.',
                     'success'
                   );
+                }, 2000);
             });
     }
 }

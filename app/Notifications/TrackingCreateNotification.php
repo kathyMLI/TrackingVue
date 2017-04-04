@@ -51,7 +51,7 @@ class TrackingCreateNotification extends Notification
         $description = $this->description;
 
         return (new MailMessage)
-            ->subject('Nuevo tracking ')
+            ->subject('Nuevo Tracking '.$code)
             ->markdown('mail.tracking.create', compact('user', 'code', 'description'));
     }
 

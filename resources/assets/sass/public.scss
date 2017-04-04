@@ -74,3 +74,9 @@ img.postal-platform-logo {
 .is-100 {
     width: 100px;
 }
+
+@media screen and (min-width: 769px){
+    a.nav-item {
+        color: #FFFFFF;
+    }
+}
