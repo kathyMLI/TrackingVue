@@ -19,30 +19,33 @@
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        <th></th>
                                         <th>Código</th>
                                         <th>Descripción</th>
-                                        <th>Estado Legible</th>
                                         <th>Estado</th>
+                                        <th>Estado Legible</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td></td>
                                         <td><p class="control"><input v-model="search.code" v-on:blur="filter" type="text" class="input" placeholder="Buscar Código"></p></td>
                                         <td><p class="control"><input v-model="search.description" v-on:blur="filter" type="text" class="input" placeholder="Buscar Descripción"></p></td>
-                                        <td><p class="control"><input v-model="search.delivered" v-on:blur="filter" type="text" class="input" placeholder="Buscar Estado"></p></td>
-                                        <td></td>
+                                        <td><p><input class="input" type="text" placeholder="Buscar Estado"></p></td>
+                                        <td><p class="control"><input v-model="search.delivered" v-on:blur="filter" type="text" class="input is-100" placeholder="Buscar Estado Legible"></p></td>
                                         <td></td>
                                     </tr>
                                     <tr v-for="(track, index) in data.data">
+                                        <td><img class="postal-platform-logo" :src="'img/postalPlatforms/' + track.postal_platform.label + '.png'"></td>
                                         <td>{{ track.code }}</td>
                                         <td>{{ setString(track.pivot.description) }}</td>
-                                        <td>{{ track.delivered}}</td>
                                         <td>{{ getSendingStatus(track.history[0]) }}</td>
+                                        <td><span v-bind:class="['tag', {'is-success': (track.delivered == 'Entregado'), 'is-primary': (track.delivered == 'En camino')}]">{{ track.delivered}}</span></td>
                                         <td>
-                                            <a class="button" @click="setModal(track)"><i class="fa fa-eye"></i></a>
-                                            <router-link :to="{ name: 'trackingsEdit', params: { id: track.id} }" class="button"><span class="fa fa-pencil-square-o"></span></router-link>
-                                            <a class="button is-danger" @click="destroy(track.id, index)"><span class="fa fa-trash"></span></a>
+                                            <a class="button is-small" @click="setModal(track)"><i class="fa fa-eye"></i></a>
+                                            <router-link :to="{ name: 'trackingsEdit', params: { id: track.id} }" class="button is-small"><span class="fa fa-pencil-square-o"></span></router-link>
+                                            <a class="button is-danger is-small" @click="destroy(track.id, index)"><span class="fa fa-trash"></span></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -55,15 +58,10 @@
                             <div class="modal-background"></div>
                             <div class="modal-card">
                                 <header class="modal-card-head">
-                                    <p class="modal-card-title">Codigo: {{ modal.data.code }}</p>
+                                    <p class="modal-card-title">{{ modal.data.pivot.description }} ({{ modal.data.code }})</p>
                                     <button class="delete" @click="modal.show = false, modal.current = 'description'"></button>
                                 </header>
                                 <section class="modal-card-body">
-                                    <div class="modalDescription">
-                                        <h2 class="tittle">Descripcion</h2>
-                                        <hr>
-                                        <p>{{ modal.data.pivot.description }}</p>
-                                    </div>
                                     <div class="modalHistory">
                                         <h2 class="tittle">Historial</h2>
                                         <hr>

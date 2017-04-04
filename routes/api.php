@@ -21,7 +21,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
         return $request->user()->load('notifications');
     });
     Route::get('me/trackings', function (Request $request) {
-        return $request->user()->trackings()->paginate();
+        return $request->user()->trackings()->with('postalPlatform')->paginate();
     });
     Route::post('/markNotificationsAsRead', function (Request $request) {
         $request->user()->unreadNotifications()->update(['read_at' => \Carbon\Carbon::now()]);

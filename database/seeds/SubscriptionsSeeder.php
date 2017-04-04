@@ -15,7 +15,7 @@ class SubscriptionsSeeder extends Seeder
     {
         Subscription::create([
             'name' => 'Gratis',
-            'quantity' => 5
+            'quantity' => 50
         ]);
 
     }
